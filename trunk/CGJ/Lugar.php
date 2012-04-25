@@ -37,12 +37,11 @@ class Lugar{
                     //Sobreescribimos el arraysobrenombres
                     array_push($lugar["Sobrenombres"], $nuevoSombrenombre);
                     //Sobreescribimos el array lugares
-                    $lugares[$contador]=$lugar["Sobrenombres"];
-                    //Sobreescribimos el array response
-                    $response[$doc]=$lugares;
+                    $lugares[$contador]=$lugar;
                 }
                 $contador=$contador+1;
             }
+            $response[$doc]=$lugares;
             Couch::put("/cgj/Municipios", json_encode($response));
                          
 }
