@@ -10,16 +10,14 @@
         include("Couch.php");
         include("Lugar.php");
         $lugar = new Lugar("Sombrerete", "Sombrerete", 0);
-        //$lugar->addSobrenombre("visamebaasa");
-        //$lugar->getSobrenombres();
        //--Couch::put("/test",null);
         //--Couch::put("/test/123",  json_encode($arr));
         //Couch::put("/test", null);
         //Couch::delete("/test/");
         //Couch::get("/cgj/");
-        $lugar->getSobrenombres();
-        
-
-        ?>
+        //$lugar->getSobrenombres();
+        $lugar->addSobrenombre("");
+        //print_r($lugar);
+?>
     </body>
 </html>

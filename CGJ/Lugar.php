@@ -29,10 +29,23 @@ class Lugar{
                 $doc="Municipios";
             
             //Base de datos
-            //$res = Couch::get("/cgj/"+$doc);
-            $arr = array('sobrenombre' => $nuevoSombrenombre);
-            Couch::put("/test/123", json_encode($arr));
-	}
+            $response=Couch::get("/cgj/Municipios");
+            $lugares=$response[$doc];
+            $contador=0;
+            foreach($lugares as $lugar){
+                if($lugar["Nombre"]==$this->Nombre){
+                    //Sobreescribimos el arraysobrenombres
+                    array_push($lugar["Sobrenombres"], $nuevoSombrenombre);
+                    //Sobreescribimos el array lugares
+                    $lugares[$contador]=$lugar["Sobrenombres"];
+                    //Sobreescribimos el array response
+                    $response[$doc]=$lugares;
+                }
+                $contador=$contador+1;
+            }
+            Couch::put("/cgj/Municipios", json_encode($response));
+                         
+}
         
         public function getSobrenombres(){
             //Tipo 0=Municipio
@@ -43,14 +56,12 @@ class Lugar{
             
             //Base de datos
            $response=Couch::get("/cgj/Municipios");
-            //var_dump($response);
-            
-           
            $lugares=$response[$doc];
-            
+           
               
             foreach($lugares as $lugar){
-                echo $lugar["Nombre"];
+                if($lugar["Nombre"]==$this->Nombre)
+                    return $lugar["Sobrenombres"];
             }
                          
            
