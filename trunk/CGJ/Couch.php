@@ -6,14 +6,16 @@ include("CouchSimple.php");
  */
 
     class Couch{
-	      
+	
+        private $opciones;
+        private $couch;
         public static function delete($uri){
          
             $opciones['host'] = "localhost"; 
             $options['port'] = 5984; 
             
             $couch = new CouchSimple($options); // See if we can make a connection
-            $resp = $couch->send("DELETE", "/"+$uri+"/"); 
+            $resp = $couch->send("DELETE", $uri); 
             var_dump($resp); // string(12) "{"ok":true}"
         }
         
@@ -23,46 +25,27 @@ include("CouchSimple.php");
             $options['port'] = 5984; 
             
             $couch = new CouchSimple($options); // See if we can make a connection
-            $resp = $couch->send("DELETE", "/"+$uri+"/"); 
-            var_dump($resp); // string(12) "{"ok":true}"
+            // Get back document
+            $resp = $couch->send("GET", $uri); 
+            var_dump($resp);
+            $regreso=json_decode($resp,true);
+            return $regreso;
+            
         }
+        
+         public static function put($uri,$jason){
+         
+            $opciones['host'] = "localhost"; 
+            $options['port'] = 5984; 
+            
+            $couch = new CouchSimple($options); // See if we can make a connection
+            
+            // Create
+             $resp = $couch->send("PUT", $uri, $jason); 
+            var_dump($resp); // string(47) "{"_id":"123","_rev":"2039697587","data":"Foo"}"  
+        }
+        
 
     }
   
 ?>
-
-
-def get(uri)
-      request(Net::HTTP::Get.new(uri))
-    end
-
-    def put(uri, json)
-      req = Net::HTTP::Put.new(uri)
-      req["content-type"] = "application/json"
-      req.body = json
-      request(req)
-    end
-
-    def post(uri, json)
-      req = Net::HTTP::Post.new(uri)
-      req["content-type"] = "application/json"
-      req.body = json
-      request(req)
-    end
-
-    def request(req)
-      res = Net::HTTP.start(@host, @port) { |http|http.request(req) }
-      unless res.kind_of?(Net::HTTPSuccess)
-        handle_error(req, res)
-      end
-      res
-    end
-
-    private
-
-    def handle_error(req, res)
-      e = RuntimeError.new("#{res.code}:#{res.message}\nMETHOD:#{req.method}\nURI:#{req.path}\n#{res.body}")
-      raise e
-    end
-  end
-end

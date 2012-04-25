@@ -6,7 +6,20 @@
     </head>
     <body>
         <?php
+        //$arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
         include("Couch.php");
+        include("Lugar.php");
+        $lugar = new Lugar("Sombrerete", "Sombrerete", 0);
+        //$lugar->addSobrenombre("visamebaasa");
+        //$lugar->getSobrenombres();
+       //--Couch::put("/test",null);
+        //--Couch::put("/test/123",  json_encode($arr));
+        //Couch::put("/test", null);
+        //Couch::delete("/test/");
+        //Couch::get("/cgj/");
+        $lugar->getSobrenombres();
+        
+
         ?>
     </body>
 </html>

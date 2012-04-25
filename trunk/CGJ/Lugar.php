@@ -21,60 +21,52 @@ class Lugar{
 	}
         
 	
-	public static function addSobrenombre($nuevoSombrenombre){
+	public function addSobrenombre($nuevoSombrenombre){
             //Tipo 0=Municipio
             //Tipo 1=Localidad
             $doc="Localidades_"+$this->Municipio;
-            if($tipo==0)
+            if($this->Tipo==0)
                 $doc="Municipios";
             
             //Base de datos
-            $server=new Couch("localhost","5984");
-            $res = $server.get("/cgj/"+doc);
-            $a = res.body;
-            $aa=JSON.parse(a);
-            //$lugares= aa[doc];
-            //lugares.each do |luga|
-            //if (luga['Nombre']==@nombre)
-            //sobrenombres=luga['Sobrenombres']
-            //sobrenombres<<nuevosobrenombre
-            //json=aa.to_json
-            server.put("/cgj/"+doc, json);
-		return self;
+            //$res = Couch::get("/cgj/"+$doc);
+            $arr = array('sobrenombre' => $nuevoSombrenombre);
+            Couch::put("/test/123", json_encode($arr));
 	}
         
-        public static function getSobrenombres(){
+        public function getSobrenombres(){
             //Tipo 0=Municipio
             //Tipo 1=Localidad
             $doc="Localidades_"+$this->Municipio;
-            if($tipo==0)
+            if($this->Tipo==0)
                 $doc="Municipios";
             
             //Base de datos
-            $server=new Couch("localhost","5984");
-            $res = $server.get("/cgj/"+doc);
-            $a = res.body;
-            $lugarJson=JSON.parse(a);
+           $response=Couch::get("/cgj/Municipios");
+            //var_dump($response);
             
-            // lugares= json[doc]
-      //lugares.each do |luga|
-        //  if luga['Nombre']==@nombre
-          //  return luga['Sobrenombres']
-          //end
-          //return 'No se encontró'
-     // end
+           
+           $lugares=$response[$doc];
+            
+              
+            foreach($lugares as $lugar){
+                echo $lugar["Nombre"];
+            }
+                         
+           
+   
         }
-        public static function bajSobrenombre($sobrenombre){
+        public function bajaSobrenombre($sobrenombre){
         //tipo 0=municipio
         //tipo 1=localidad
         $doc='Localidades_'+@municipio;
-      if($tipo==0)
+      if($this->Tipo==0)
         $doc='Municipios';
-        $server = new Couch("localhost", "5984");
-        $res = server.get("/cgj/"+doc);
-        $a = res.body;
-        $lugarjson=a;
-        $json=JSON.parse(a);
+       // $server = new Couch("localhost", "5984");
+        //$res = server.get("/cgj/"+doc);
+        //$a = res.body;
+        //$lugarjson=a;
+        //$json=JSON.parse(a);
         //$lugares= json[doc];
       //lugares.each do |luga|
       //    if luga['Nombre']==@nombre

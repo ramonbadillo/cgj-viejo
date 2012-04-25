@@ -7,6 +7,7 @@
 
 class CouchSimple {
     public $user;
+    public $host;
    
     function CouchSimple($options) {
        foreach($options AS $key => $value) {
