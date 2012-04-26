@@ -54,16 +54,7 @@ class Usuario {
         Couch::put("/cgj/Usuarios", json_encode($response));
     }
 
-    public function altaActa(Acta $acta,$municipio){
-        $acta->alta($municipio);
-    }
-
-    public function bajaActa($no,$curp,$municipio){
-    }
-    public function cambioActa(Acta $acta,$municipio){
-    }
-  public function crearActa(Acta $acta){
-}
+ 
 
 function  getMunicipios(){
      $response=Couch::get("/cgj/Municipios");
