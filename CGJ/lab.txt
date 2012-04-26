@@ -21,43 +21,41 @@ Domiciliop /
 Origenp /
 Edocivilp /
 Ocupacionp /
-PosTrabajo /
 Nombrem /
 Nacionalidadm-
 Edadm /
 Domiciliom /
 Origenm /
-Edocivilm 
-Ocupacionm
-PosTrabajo
-Abuelop
-Edadap
-Nacionalidadap
-Abuelap
-Edadaap
-Nacionalidadaap
-Domiciliosap
-Abuelom
-Edadam
-Nacionalidadam
-Abuelam
-Edadaam
-Nacionalidadaam
-Domiciliosam
-T1nombre
+Edocivilm /
+Ocupacionm /
+Abuelop /
+Edadap /
+Nacionalidadap /
+Abuelap /
+Edadaap /
+Nacionalidadaap /
+Domiciliosap /
+Abuelom /
+Edadam /
+Nacionalidadam /
+Abuelam /
+Edadaam /
+Nacionalidadaam /
+Domiciliosam /
+T1nombre /
 T1origen-
-T1nacionalidad
-T1edad
-T1domicilio
-T2nombre
+T1nacionalidad /
+T1edad /
+T1domicilio /
+T2nombre /
 T2origen-
-T2nacionalidad
-T2edad
-T2domicilio
-T3nombre
+T2nacionalidad /
+T2edad /
+T2domicilio /
+T3nombre /
 T3parentesco-
-T3edad
-T3domicilio
+T3edad /
+T3domicilio/
 T3edocivil-
 Firmapadre-
 Firmamadre-
@@ -77,10 +75,10 @@ Quienatendioelparto-
 Nohijosnacidosv-
 Nohijosvivenhogar-
 Unionmadre-
-Escolaridadm
-Trabajom
-Posiciontrabajom
-Escolaridadp
-Trabajop
-Posiciontrabajop
+Escolaridadm / 
+Trabajom /
+Posiciontrabajom /
+Escolaridadp /
+Trabajop /
+Posiciontrabajop /
 Vivo
