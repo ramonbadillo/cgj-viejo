@@ -23,20 +23,18 @@ class Usuario {
             Couch::put("/cgj/Usuarios", json_encode($response));
     }
     public function  baja(Usuario $usu){
-            $response=Couch::get("/cgj/Usuarios");
+           $response=Couch::get("/cgj/Usuarios");
             $usuarios=$response["Usuarios"];
+            $contador=0;
             foreach($usuarios as $u){
                 if($u['nombre']==$usu->nombre){
-                    unset($usuarios[$u]);
-
-                    $usuarios=array_values($usuarios);
-                    echo "y======".$usuarios;
+                    unset($usuarios[$contador]);
+                    print_r($usuarios);
                 }
-                else
-                echo "no";
-                $response["Usuarios"]=$usuarios;
-                Couch::delete("/cgj/Usuarios", json_encode($response));
+                $contador=$contador+1;
             }
+            $response["Usuarios"]=$usuarios;
+            Couch::put("/cgj/Usuarios", json_encode($response));
     }
     public function cambio(Usuario $usuario,$usu,$pass){
          $response=Couch::get("/cgj/Usuarios");
