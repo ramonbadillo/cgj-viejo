@@ -37,16 +37,21 @@ class Usuario {
             Couch::put("/cgj/Usuarios", json_encode($response));
     }
     public function cambio(Usuario $usuario,$usu,$pass){
-         $response=Couch::get("/cgj/Usuarios");
-            $usuarios=$response["Usuarios"];
-            foreach($usuarios as $u){
-                if($u['nombre']==$usu && $u['password']==$pass){
-                    $u['nombre']=$usuario->nombre;
-
-                }
-                $response["Usuarios"]=$usuarios;
-                Couch::put("/cgj/Usuarios", json_encode($response));
+        $response=Couch::get("/cgj/Usuarios");
+        $usuarios=$response["Usuarios"];
+        $contador=0;
+        foreach($usuarios as $u){
+            if($u['nombre']==$usu&&$u['password']==$pass){
+                $nuevoUsuario=array("nombre"=>$usuario->nombre,
+                "usuario"=>$usuario->usuario,"password"=>$usuario->password,
+                "municipio"=>$usuario->municipio,"privilegio"=>$usuario->privilegio);
+                $usuarios[$contador]=$nuevoUsuario;
+                break;
             }
+            $contador=$contador+1;
+        }
+        $response["Usuarios"]=$usuarios;
+        Couch::put("/cgj/Usuarios", json_encode($response));
     }
 
     public function altaActa(Acta $acta,$municipio){
