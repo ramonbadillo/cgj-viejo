@@ -1,33 +1,33 @@
-No - CRIP
-Curp
-Nooficialia
-Nolibro
-Localidad
-Fechaderegistro
-Municipio
-Entidadfederativa
-Nombre
+No - CRIP /
+Curp /
+Nooficialia /
+Nolibro /
+Localidad /
+Fechaderegistro /
+Municipio- 
+Entidadfederativa-
+Nombre /
 Papellido-
 Sapellido-
-Fden
-Lugardenacimiento
-Nodecertifdenacimiento
-Fueregistrado
-Comparecio
-Nombrep
-Nacionalidadp
-Edadp
-Domiciliop
-Origenp
-Edocivilp
-Ocupacionp
-PosTrabajo
-Nombrem
-Nacionalidadm
-Edadm
-Domiciliom
-Origenm
-Edocivilm
+Fden /
+Lugardenacimiento /
+Nodecertifdenacimiento-
+Fueregistrado /
+Comparecio /
+Nombrep /
+Nacionalidadp-
+Edadp /
+Domiciliop /
+Origenp /
+Edocivilp /
+Ocupacionp /
+PosTrabajo /
+Nombrem /
+Nacionalidadm-
+Edadm /
+Domiciliom /
+Origenm /
+Edocivilm 
 Ocupacionm
 PosTrabajo
 Abuelop
@@ -46,12 +46,12 @@ Nacionalidadaam
 Domiciliosam
 T1nombre
 T1origen-
-T1nacionalidad-
+T1nacionalidad
 T1edad
 T1domicilio
 T2nombre
 T2origen-
-T2nacionalidad-
+T2nacionalidad
 T2edad
 T2domicilio
 T3nombre
