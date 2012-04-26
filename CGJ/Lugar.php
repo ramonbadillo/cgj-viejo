@@ -67,25 +67,35 @@ class Lugar{
    
         }
         public function bajaSobrenombre($sobrenombre){
-        //tipo 0=municipio
-        //tipo 1=localidad
-        $doc='Localidades_'+@municipio;
-      if($this->Tipo==0)
-        $doc='Municipios';
-       // $server = new Couch("localhost", "5984");
-        //$res = server.get("/cgj/"+doc);
-        //$a = res.body;
-        //$lugarjson=a;
-        //$json=JSON.parse(a);
-        //$lugares= json[doc];
-      //lugares.each do |luga|
-      //    if luga['Nombre']==@nombre
-        //    sobrenombres=luga['Sobrenombres']
-          //  sobrenombres.delete(sobrenombre)
-            //j=json.to_json
-            //server.put("/cgj/"+doc, j)
-            //return false
-          //return false
-        }
+            //Tipo 0=Municipio
+            //Tipo 1=Localidad
+            $doc="Localidades_"+$this->Municipio;
+            if($this->Tipo==0)
+                $doc="Municipios";
+            
+            //Base de datos
+            $response=Couch::get("/cgj/Municipios");
+            $lugares=$response[$doc];
+            $c=0;
+            foreach($lugares as $lugar){
+                if($lugar["Nombre"]==$this->Municipio){
+                    //COntador para el otro array
+                    $contador=0;
+                    foreach($lugar["Sobrenombres"] as $sobre){
+                        echo $sobre;
+                        if($sobre==$sobrenombre){
+                            echo "entro";
+                            unset($lugar["Sobrenombres"][$contador]);
+                        }
+                        $contador=$contador+1;
+                    }
+                    $lugares[$c]=$lugar;
+                }
+                $c=$c+1;
+            }
+            $response[$doc]=$lugares;
+            print_r($lugares);
+            Couch::put("/cgj/Municipios", json_encode($response));
+}
 }
 ?>
