@@ -230,101 +230,44 @@ class Acta{
         $response=Couch::get("/cgj/Actas_".$Municipio);
         $actas=$response["Actas"];
         
+        $actamodificada = array(  'no'=>$this->No, 'curp'=>$this->Curp, 'nooficialia'=>$this->Nooficialia, 'nolibro'=>$this->Nolibro,
+            'localidad'=>$this->Localidad, 'fechaderegistro'=>$this->Fechaderegistro, 'municipio'=>$this->Municipio,
+            'entidadfederativa'=>$this->Entidadfederativa, 'nombre'=>$this->Nombre, 'papellido'=>$this->Papellido,
+            'sapellido'=>$this->Sapellido, 'fden'=>$this->Fden, 'lugardenacimiento'=>$this->Lugardenacimiento,
+            'nodecertifdenacimiento'=>$this->Nodecertifdenacimiento, 'fueregistrado'=>$this->Fueregistrado,
+            'comparecio'=>$this->Comparecio, 'nombrep'=>$this->Nombrep, 'nacionalidadp'=>$this->Nacionalidadp,'edadp'=>$this->Edadp,
+            'domiciliop'=>$this->Domiciliop, 'origenp'=>$this->Origenp, 'edocivilp'=>$this->Edocivilp, 'ocupacionp'=>$this->Ocupacionp,
+            'nombrem'=>$this->Nombrem, 'nacionalidadm'=>$this->Nacionalidadm, 'edadm'=>$this->Edadm, 'domiciliom'=>$this->Domiciliom,
+            'origenm'=>$this->Origenm, 'edocivilm'=>$this->Edocivilm, 'ocupacionm'=>$this->Ocupacionm, 'abuelop'=>$this->Abuelop,
+            'edadap'=>$this->Edadap, 'nacionalidadap'=>$this->Nacionalidadap, 'abuelap'=>$this->Abuelap, 'edadaap'=>$this->Edadaap,
+            'nacionalidadaap'=>$this->Nacionalidadaap, 'domiciliosap'=>$this->Domiciliosap, 'abuelom'=>$this->Abuelom,
+            'edadam'=>$this->Edadam, 'nacionalidadam'=>$this->Nacionalidadam, 'abuelam'=>$this->Abuelam, 'edadaam'=>$this->Edadaam,
+            'nacionalidadaam'=>$this->Nacionalidadaam, 'domiciliosam'=>$this->Domiciliosam, 't1nombre'=>$this->T1nombre,
+            't1origen'=>$this->T1origen, 't1nacionalidad'=>$this->T1nacionalidad, 't1edad'=>$this->T1edad,
+            't1domicilio'=>$this->T1domicilio, 't2nombre'=>$this->T2nombre, 't2origen'=>$this->T2origen,
+            't2nacionalidad'=>$this->T2nacionalidad, 't2edad'=>$this->T2edad, 't2domicilio'=>$this->T2domicilio,
+            't3nombre'=>$this->T3nombre, 't3parentesco'=>$this->T3parentesco, 't3edad'=>$this->T3edad,
+            't3domicilio'=>$this->T3domicilio, 't3edocivil'=>$this->T3edocivil, 'firmapadre'=>$this->Firmapadre,
+            'firmamadre'=>$this->Firmamadre, 'firmat3'=>$this->Firmat3, 'firmat1'=>$this->Firmat1, 'firmat2'=>$this->Firmat2,
+            'huella'=>$this->Huella, 'coficial'=>$this->Coficial, 'conombre'=>$this->Conombre, 'cofirma'=>$this->Cofirma,
+            'sellorc'=>$this->Sellorc, 'anotaciones'=>$this->Anotaciones, 'nacimiento'=>$this->Nacimiento,
+            'ordendparto'=>$this->Ordendparto, 'dondeseatendioelparto'=>$this->Dondeseatendioelparto,
+            'quienatendioelparto'=>$this->Quienatendioelparto, 'nohijosnacidosv'=>$this->Nohijosnacidosv,
+            'nohijosvivenhogar'=>$this->Nohijosvivenhogar, 'unionmadre'=>$this->Unionmadre, 'escolaridadm'=>$this->Escolaridadm,
+            'trabajom'=>$this->Trabajom, 'posiciontrabajom'=>$this->Posiciontrabajom, 'escolaridadp'=>$this->Escolaridadp,
+            'trabajop'=>$this->Trabajop, 'posiciontrabajop'=>$this->Posiciontrabajop, 'vivo'=>$this->Vivo);
+        
+        
+        $contador=0;
         foreach ($actas as $acta){
             if($acta['no']==$this->No && $acta['curp']==$this->Curp){
-                $acta['no']=$this->No;
-                $acta['curp']=$this->Curp;
-                $acta['nooficialia']=$this->Nooficialia;
-                $acta['nolibro']=$this->Nolibro;
-                $acta['localidad']=$this->Localidad;
-                $acta['fechaderegistro']=$this->Fechaderegistro;
-                $acta['municipio']=$this->Municipio;
-                $acta['entidadfederativa']=$this->Entidadfederativa;
-                $acta['nombre']=$this->Nombre;
-                $acta['papellido']=$this->Papellido;
-                $acta['sapellido']=$this->Sapellido;
-                $acta['fden']=$this->Fden;
-                $acta['lugardenacimiento']=$this->Lugardenacimiento;
-                $acta['nodecertifdenacimiento']=$this->Nodecertifdenacimiento;
-                $acta['fueregistrado']=$this->Fueregistrado;
-                $acta['comparecio']=$this->Comparecio;
-                $acta['nombrep']=$this->Nombrep;
-                $acta['nacionalidadp']=$this->Nacionalidadp;
-                $acta['edadp']=$this->Edadp;
-                $acta['domiciliop']=$this->Domiciliop;
-                $acta['origenp']=$this->Origenp;
-                $acta['edocivilp']=$this->Edocivilp;
-                $acta['ocupacionp']=$this->Ocupacionp;
-                $acta['nombrem']=$this->Nombrem;
-                $acta['nacionalidadm']=$this->Nacionalidadm;
-                $acta['edadm']=$this->Edadm;
-                $acta['domiciliom']=$this->Domiciliom;
-                $acta['origenm']=$this->Origenm;
-                $acta['edocivilm']=$this->Edocivilm;
-                $acta['ocupacionm']=$this->Ocupacionm;
-                $acta['abuelop']=$this->Abuelop;
-                $acta['edadap']=$this->Edadap;
-                $acta['nacionalidadap']=$this->Nacionalidadap;
-                $acta['abuelap']=$this->Abuelap;
-                $acta['edadaap']=$this->Edadaap;
-                $acta['nacionalidadaap']=$this->Nacionalidadaap;
-                $acta['domiciliosap']=$this->Domiciliosap;
-                $acta['abuelom']=$this->Abuelom;
-                $acta['edadam']=$this->Edadam;
-                $acta['nacionalidadam']=$this->Nacionalidadam;
-                $acta['abuelam']=$this->Abuelam;
-                $acta['edadaam']=$this->Edadaam;
-                $acta['nacionalidadaam']=$this->Nacionalidadaam;
-                $acta['domiciliosam']=$this->Domiciliosam;
-                $acta['t1nombre']=$this->T1nombre;
-                $acta['t1origen']=$this->T1origen;
-                $acta['t1nacionalidad']=$this->T1nacionalidad;
-                $acta['t1edad']=$this->T1edad;
-                $acta['t1domicilio']=$this->T1domicilio;
-                $acta['t2nombre']=$this->T2nombre;
-                $acta['t2origen']=$this->T2origen;
-                $acta['t2nacionalidad']=$this->T2nacionalidad;
-                $acta['t2edad']=$this->T2edad;
-                $acta['t2domicilio']=$this->T2domicilio;
-                $acta['t3nombre']=$this->T3nombre;
-                $acta['t3parentesco']=$this->T3parentesco;
-                $acta['t3edad']=$this->T3edad;
-                $acta['t3domicilio']=$this->T3domicilio;
-                $acta['t3edocivil']=$this->T3edocivil;
-                $acta['firmapadre']=$this->Firmapadre;
-                $acta['firmamadre']=$this->Firmamadre;
-                $acta['firmat3']=$this->Firmat3;
-                $acta['firmat1']=$this->Firmat1;
-                $acta['firmat2']=$this->Firmat2;
-                $acta['huella']=$this->Huella;
-                $acta['coficial']=$this->Coficial;
-                $acta['conombre']=$this->Conombre;
-                $acta['cofirma']=$this->Cofirma;
-                $acta['sellorc']=$this->Sellorc;
-                $acta['anotaciones']=$this->Anotaciones;
-                $acta['nacimiento']=$this->Nacimiento;
-                $acta['ordendparto']=$this->Ordendparto;
-                $acta['dondeseatendioelparto']=$this->Dondeseatendioelparto;
-                $acta['quienatendioelparto']=$this->Quienatendioelparto;
-                $acta['nohijosnacidosv']=$this->Nohijosnacidosv;
-                $acta['nohijosvivenhogar']=$this->Nohijosvivenhogar;
-                $acta['unionmadre']=$this->Unionmadre;
-                $acta['escolaridadm']=$this->Escolaridadm;
-                $acta['trabajom']=$this->Trabajom;
-                $acta['posiciontrabajom']=$this->Posiciontrabajom;
-                $acta['escolaridadp']=$this->Escolaridadp;
-                $acta['trabajop']=$this->Trabajop;
-                $acta['posiciontrabajop']=$this->Posiciontrabajop;
-                $acta['vivo']=$this->Vivo;
-
-                array_push($actas,$actanueva);
-                $response["Actas"]=$actas;
-                
+                $actas[$contador]=$actamodificada;
             }
+            $response["Actas"]=$actas;
         }
             
-           
-        Couch::put("/cgj/Actas_".$Municipio,json_encode($response));
+         print_r($actas); 
+         Couch::put("/cgj/Actas_".$Municipio,json_encode($response));
         
     }
 }
