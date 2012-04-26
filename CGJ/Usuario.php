@@ -57,9 +57,16 @@ class Usuario {
  
 
 function  getMunicipios(){
-     $response=Couch::get("/cgj/Municipios");
-     return $response["Municipios"];
-}
+            $response=Couch::get("/cgj/Municipios");
+            //return $response["Municipios"];
+            $lLugares =$response["Municipios"];
+            //echo $lLugares;
+            $locales=array();
+            foreach($lLugares as $lugar){
+                array_push($locales,$lugar["Nombre"]);
+            }
+            return $locales;
+        }
 
   public function getLocalidades($municipio){
        $response=Couch::get("/cgj/Localidades_".$municipio);
