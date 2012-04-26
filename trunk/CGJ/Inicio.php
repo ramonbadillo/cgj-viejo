@@ -16,7 +16,7 @@ class Inicio {
         $response=Couch::get("/cgj/Usuarios");
         $usuarios=$response["Usuarios"];
         foreach($usuarios as $nombres){
-            if($nombres["usuario"]==$usuario&&$nombres["password"]==$$password){
+            if($nombres["usuario"]==$usuario&&$nombres["password"]==$password){
                 $u=new Usuario($nombres['nombre'],$nombres['usuario'],$nombres['password'],$nombres['municipio'],$nombres['privilegio']);
                 return $u;
             }
