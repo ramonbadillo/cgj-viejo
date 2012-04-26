@@ -266,9 +266,28 @@ class Acta{
             $response["Actas"]=$actas;
         }
             
-         print_r($actas); 
+         //print_r($actas); 
          Couch::put("/cgj/Actas_".$Municipio,json_encode($response));
         
     }
+    
+    
+     public function getActasMunicipio($municipio){
+            
+            
+            //Base de datos
+           $response=Couch::get("/cgj/Actas_".$municipio);
+           $lugares=$response["Actas"];
+           return $lugares;
+     }
+     
+      public function findActa($municipio,$numero,$curp,$nombre){
+            
+            
+            //Base de datos
+           $response=Couch::get("/cgj/Actas_".$municipio);
+           $lugares=$response["Actas"];
+           return $lugares;
+     }
 }
 ?>
