@@ -272,22 +272,61 @@ class Acta{
     }
     
     
-     public function getActasMunicipio($municipio){
+     public static function getActasMunicipio($municipio){
             
             
             //Base de datos
-           $response=Couch::get("/cgj/Actas_".$municipio);
-           $lugares=$response["Actas"];
-           return $lugares;
+           if($response=Couch::get("/cgj/Actas_".$municipio)){
+            $lugares=$response["Actas"];
+            return $lugares;
+           }
      }
      
-      public function findActa($municipio,$numero,$curp,$nombre){
+     public static function getActas($privilegio,$municipio){
+            
+         //Privilegio 1 Todo
+         //Privilegio 0 Municipios
+            //Base de datos
+         if($privilegio==0){
+             if(Acta::getActasMunicipio ($municipio)!=null)
+                return Acta::getActasMunicipio ($municipio);
+             else
+                 return -1;
+         }
+         else{
+             $array=array();
+             $Usuario=new Usuario("", "", "", "", "");
+             $municipios=$Usuario->getMunicipios();
+             foreach($municipios as $municipio)
+                array_push($array, Acta::getActasMunicipio($municipio));
+             if($array!=null)
+                 return $array;
+             else
+                 return -1;
+             
+         }
+     }
+     
+     
+      public static function findActa($municipio,$numero,$curp,$nombre){
             
             
             //Base de datos
            $response=Couch::get("/cgj/Actas_".$municipio);
-           $lugares=$response["Actas"];
-           return $lugares;
+           $actas=$response["Actas"];
+           $actasNombre=array();
+           foreach($actas as $acta){
+               if($acta["no"]==$numero)
+                   return $acta;
+               if($acta["curp"]==$curp)
+                   return $acta;
+               if($acta["nombre"]==$nombre)
+                   array_push($actasNombre,$acta);
+           }
+           if($actasNombre!=null)
+            return $actasNombre;
+           else
+               return -1;
      }
 }
 ?>
