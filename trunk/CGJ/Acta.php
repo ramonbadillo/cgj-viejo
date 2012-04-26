@@ -271,15 +271,59 @@ class Acta{
         
     }
     
+     public function delete($Municipio){
+        $response=Couch::get("/cgj/Actas_".$Municipio);
+        $actas=$response["Actas"];
+        
+        $actamodificada = array(  'no'=>$this->No, 'curp'=>$this->Curp, 'nooficialia'=>$this->Nooficialia, 'nolibro'=>$this->Nolibro,
+            'localidad'=>$this->Localidad, 'fechaderegistro'=>$this->Fechaderegistro, 'municipio'=>$this->Municipio,
+            'entidadfederativa'=>$this->Entidadfederativa, 'nombre'=>$this->Nombre, 'papellido'=>$this->Papellido,
+            'sapellido'=>$this->Sapellido, 'fden'=>$this->Fden, 'lugardenacimiento'=>$this->Lugardenacimiento,
+            'nodecertifdenacimiento'=>$this->Nodecertifdenacimiento, 'fueregistrado'=>$this->Fueregistrado,
+            'comparecio'=>$this->Comparecio, 'nombrep'=>$this->Nombrep, 'nacionalidadp'=>$this->Nacionalidadp,'edadp'=>$this->Edadp,
+            'domiciliop'=>$this->Domiciliop, 'origenp'=>$this->Origenp, 'edocivilp'=>$this->Edocivilp, 'ocupacionp'=>$this->Ocupacionp,
+            'nombrem'=>$this->Nombrem, 'nacionalidadm'=>$this->Nacionalidadm, 'edadm'=>$this->Edadm, 'domiciliom'=>$this->Domiciliom,
+            'origenm'=>$this->Origenm, 'edocivilm'=>$this->Edocivilm, 'ocupacionm'=>$this->Ocupacionm, 'abuelop'=>$this->Abuelop,
+            'edadap'=>$this->Edadap, 'nacionalidadap'=>$this->Nacionalidadap, 'abuelap'=>$this->Abuelap, 'edadaap'=>$this->Edadaap,
+            'nacionalidadaap'=>$this->Nacionalidadaap, 'domiciliosap'=>$this->Domiciliosap, 'abuelom'=>$this->Abuelom,
+            'edadam'=>$this->Edadam, 'nacionalidadam'=>$this->Nacionalidadam, 'abuelam'=>$this->Abuelam, 'edadaam'=>$this->Edadaam,
+            'nacionalidadaam'=>$this->Nacionalidadaam, 'domiciliosam'=>$this->Domiciliosam, 't1nombre'=>$this->T1nombre,
+            't1origen'=>$this->T1origen, 't1nacionalidad'=>$this->T1nacionalidad, 't1edad'=>$this->T1edad,
+            't1domicilio'=>$this->T1domicilio, 't2nombre'=>$this->T2nombre, 't2origen'=>$this->T2origen,
+            't2nacionalidad'=>$this->T2nacionalidad, 't2edad'=>$this->T2edad, 't2domicilio'=>$this->T2domicilio,
+            't3nombre'=>$this->T3nombre, 't3parentesco'=>$this->T3parentesco, 't3edad'=>$this->T3edad,
+            't3domicilio'=>$this->T3domicilio, 't3edocivil'=>$this->T3edocivil, 'firmapadre'=>$this->Firmapadre,
+            'firmamadre'=>$this->Firmamadre, 'firmat3'=>$this->Firmat3, 'firmat1'=>$this->Firmat1, 'firmat2'=>$this->Firmat2,
+            'huella'=>$this->Huella, 'coficial'=>$this->Coficial, 'conombre'=>$this->Conombre, 'cofirma'=>$this->Cofirma,
+            'sellorc'=>$this->Sellorc, 'anotaciones'=>$this->Anotaciones, 'nacimiento'=>$this->Nacimiento,
+            'ordendparto'=>$this->Ordendparto, 'dondeseatendioelparto'=>$this->Dondeseatendioelparto,
+            'quienatendioelparto'=>$this->Quienatendioelparto, 'nohijosnacidosv'=>$this->Nohijosnacidosv,
+            'nohijosvivenhogar'=>$this->Nohijosvivenhogar, 'unionmadre'=>$this->Unionmadre, 'escolaridadm'=>$this->Escolaridadm,
+            'trabajom'=>$this->Trabajom, 'posiciontrabajom'=>$this->Posiciontrabajom, 'escolaridadp'=>$this->Escolaridadp,
+            'trabajop'=>$this->Trabajop, 'posiciontrabajop'=>$this->Posiciontrabajop, 'vivo'=>"no");
+        
+        
+        $contador=0;
+        foreach ($actas as $acta){
+            if($acta['no']==$this->No && $acta['curp']==$this->Curp){
+                $actas[$contador]=$actamodificada;
+            }
+            $response["Actas"]=$actas;
+        }
+            
+         //print_r($actas); 
+         Couch::put("/cgj/Actas_".$Municipio,json_encode($response));
+        
+    }
+    
     
      public static function getActasMunicipio($municipio){
             
             
             //Base de datos
-           if($response=Couch::get("/cgj/Actas_".$municipio)){
+            $response=Couch::get("/cgj/Actas_".$municipio);
             $lugares=$response["Actas"];
             return $lugares;
-           }
      }
      
      public static function getActas($privilegio,$municipio){
