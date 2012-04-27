@@ -352,7 +352,7 @@ function checkAll(){
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="Edadp" type="text" />
+     <input name="Edadap" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
@@ -373,7 +373,7 @@ function checkAll(){
     </div>
         <div id="largeInput">
           <h2>Domicilio:</h2>
-          <input name="Comiciliosap" type="text" />
+          <input name="Domiciliosap" type="text" />
         </div>
     </p>
     
@@ -455,10 +455,7 @@ function checkAll(){
        <h2>Edad</h2>
      <input name="T3edad" type="text" />
     </div>
-    <div id="smallInput">
-       <h2>Nacionalidad</h2>
-     <input name="T3nacionalidad" type="text" />
-    </div>
+    
         <div id="largeInput">
           <h2>Domicilio:</h2>
           <input name="T3domicilio" type="text" />

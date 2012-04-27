@@ -190,7 +190,7 @@ function checkAll(){
    <div id="comboboxPanel">
           Presentado: 
     <select  name="Vivo" onchange="doSomething()">
-    <option value="<?php print_r($Acta["papellido"]); ?>"><?php print_r($Acta["vivo"]); ?></option>
+    <option value="<?php print_r($Acta["vivo"]); ?>"><?php print_r($Acta["vivo"]); ?></option>
               <option value="Si">Si</option>
               <option value="No">No</option>
             </select>
@@ -201,6 +201,8 @@ function checkAll(){
      <div id="comboboxPanel">
           Compareció: 
             <select name="Comparecio" onchange="doSomething()">
+            <option value="<?php print_r($Acta["comparecio"]); ?>"><?php print_r($Acta["comparecio"]); ?></option>
+            
               <option value="El Padre">El Padre</option>
               <option value="La Madre">La Madre</option>
               <option value="Ambos">Ambos</option>
@@ -219,7 +221,9 @@ function checkAll(){
         </div>
         <div id="comboboxPanel">
       <p>Escolaridad</p>
+      
           <select name="Escoloaridadp" onchange="doSomething()">
+          <option value="<?php print_r($Acta["escolaridadp"]); ?>"><?php print_r($Acta["escolaridadp"]); ?></option>
             <option value="Sin Escolaridad">Sin Escolaridad</option>
             <option value="1 a 3 Años de Primaria">1 a 3 Años de Primaria</option>
             <option value="4 a 5 Años de Primaria">4 a 5 Años de Primaria</option>
@@ -238,6 +242,7 @@ function checkAll(){
         <div id="comboboxPanel">
       <p>Trabajo</p>
           <select name="Trabajop" onchange="doSomething()">
+          <option value="<?php print_r($Acta["trabajop"]); ?>"><?php print_r($Acta["trabajop"]); ?></option>
             <option value="No trabaja">No trabaja</option>
             <option value="Trabaja sector Agropecuario">Trabaja sector Agropecuario</option>
             <option value="Alguna otra actividad">Alguna otra actividad</option>
@@ -254,6 +259,7 @@ function checkAll(){
     <div id="comboboxPanel">
       <p>Posición en su trabajo</p>
           <select name="PosTrabajop" onchange="doSomething()">
+            <option value="<?php print_r($Acta["posiciontrabajop"]); ?>"><?php print_r($Acta["posiciontrabajop"]); ?></option>
             <option value="Obrero">Obrero</option>
             <option value="Jornalero o Peón">Jornalero o Peón</option>
             <option value="Empleado">Empleado</option>
@@ -272,6 +278,7 @@ function checkAll(){
     <div id="comboboxPanel">
       <p>Estado Civil</p>
           <select name="Edocivilp" onchange="doSomething()">
+            <option value="<?php print_r($Acta["edocivilp"]); ?>"><?php print_r($Acta["edocivilp"]); ?></option>
             <option value="Casado">Casado</option>
             <option value="Viudo">Viudo</option>
             <option value="Divorciado">Divorciado</option>
@@ -291,6 +298,7 @@ function checkAll(){
         <div id="comboboxPanel">
       <p>Escolaridad</p>
           <select name="Escolaridadm" onchange="doSomething()">
+          <option value="<?php print_r($Acta["escolaridadm"]); ?>"><?php print_r($Acta["escolaridadm"]); ?></option>
             <option value="Sin Escolaridad">Sin Escolaridad</option>
             <option value="1 a 3 Años de Primaria">1 a 3 Años de Primaria</option>
             <option value="4 a 5 Años de Primaria">4 a 5 Años de Primaria</option>
@@ -309,6 +317,7 @@ function checkAll(){
         <div id="comboboxPanel">
       <p>Trabajo      </p>
           <select name="Trabajom" onchange="doSomething()">
+            <option value="<?php print_r($Acta["trabajom"]); ?>"><?php print_r($Acta["trabajom"]); ?></option>
             <option value="No trabaja">No trabaja</option>
             <option value="Trabaja sector Agropecuario">Trabaja sector Agropecuario</option>
             <option value="Alguna otra actividad">Alguna otra actividad</option>
@@ -326,6 +335,7 @@ function checkAll(){
     <div id="comboboxPanel">
       <p>Posición en su trabajo</p>
           <select name="PosTrabajom" onchange="doSomething()">
+            <option value="<?php print_r($Acta["posiciontrabajom"]); ?>"><?php print_r($Acta["posiciontrabajom"]); ?></option>
             <option value="Obrero">Obrero</option>
             <option value="Jornalero o Peón">Jornalero o Peón</option>
             <option value="Empleado">Empleado</option>
@@ -344,6 +354,7 @@ function checkAll(){
     <div id="comboboxPanel">
       <p>Estado Civil</p>
           <select name="Edocivilm" onchange="doSomething()">
+            <option value="<?php print_r($Acta["edocivilm"]); ?>"><?php print_r($Acta["edocivilm"]); ?></option>
             <option value="Casado">Casado</option>
             <option value="Viudo">Viudo</option>
             <option value="Divorciado">Divorciado</option>
@@ -473,38 +484,14 @@ function checkAll(){
        <h2>Edad</h2>
      <input value="<?php print_r($Acta["t3edad"]); ?>" name="T3edad" type="text" />
     </div>
-    <div id="smallInput">
-       <h2>Nacionalidad</h2>
-     <input value="<?php print_r($Acta["t3nacionalidad"]); ?>" name="T3nacionalidad" type="text" />
-    </div>
+    
         <div id="largeInput">
           <h2>Domicilio:</h2>
           <input value="<?php print_r($Acta["t3domicilio"]); ?>" name="T3domicilio" type="text" />
         </div>
     </p>
     
-    <p>
-    <h3>Persona Distinta de los padres que presenta al registrado</h3>
-    </p>
-     <p>
-     <div id="largeInput">
-          <h2>Nombre:</h2>
-          <input value="<?php print_r($Acta["nombrep"]); ?>" name="nombDist" type="text" />
-        </div>
-        <div id="smallInput">
-       <h2>Edad</h2>
-     <input value="<?php print_r($Acta["nombrep"]); ?>" name="edadDist" type="text" />
-    </div>
-    <div id="smallInput">
-       <h2>Nacionalidad</h2>
-     <input value="<?php print_r($Acta["nombrep"]); ?>" name="nacDist" type="text" />
-    </div>
     
-    <div id="largeInput">
-          <h2>Domicilio:</h2>
-          <input value="<?php print_r($Acta["nombrep"]); ?>" name="DomDist" type="text" />
-        </div>
-    </p>
     
     
     </div>
