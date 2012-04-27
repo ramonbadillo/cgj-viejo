@@ -327,10 +327,6 @@ class Acta{
      }
      
      public static function getActas($privilegio,$municipio){
-            
-         //Privilegio 1 Todo
-         //Privilegio 0 Municipios
-            //Base de datos
          if($privilegio==0){
              if(Acta::getActasMunicipio ($municipio)!=null)
                 return Acta::getActasMunicipio ($municipio);

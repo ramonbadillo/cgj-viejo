@@ -13,6 +13,8 @@
 	include("Usuario.php");
 	include("Acta.php");
 	session_start();
+        $a=Acta::getActas($_SESSION['priv'],$_SESSION['municipio']);
+
 ?>
 <style type="text/css">
 img, div, h1, ul, input, select, textarea, span, a { behavior: url(iepngfix.htc) }
@@ -148,7 +150,13 @@ function checkAll(){
    </div>
    <h1>Listado de Actas</h1>
    <p>A continuación se despliegan todos las actas del sistema.</p>
+   <?php
+   if($_SESSION['priv']==0){
+	?>
    <p> <a href="interActa.php"><img src="images/nueva.png"></a> </p>
+   <?php
+   }
+   ?>
   </div>
   
   
@@ -172,6 +180,7 @@ function checkAll(){
       <div class="mTitle"><?php print_r($perron["no"]); ?></div>
       <div class="mDescription"><?php print_r($perron["nombre"]); ?></div>
       <div class="mTitle"><?php print_r($perron["curp"]); ?></div>
+      <div class="mTitle"><?php print_r($perron["municipio"]); ?></div>
       <ul>
        <li><a href="modActa.php?num=<?php print_r($perron["no"]); ?>&curp=<?php print_r($perron["curp"]); ?>&nombre=<?php print_r($perron["nombre"]); ?>">Edit</a></li>
        <li><div class="mpSpace">|</div></li>
