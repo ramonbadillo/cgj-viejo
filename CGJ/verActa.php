@@ -13,14 +13,17 @@
 		$Curp=$_GET['curp'];
 		$Nombre=$_GET['nombre'];
                 if($_SESSION['priv']==0){
-                    $Acta=Acta::findActa($_SESSION['municipio'],$Numero,$Curp,$Nombre);
+                    $a=Acta::findActa($_SESSION['municipio'],$Numero,$Curp,$Nombre);
                 }else{
                     
-                    $Acta=Acta::findActa($_GET['municipio'],$Numero,$Curp,$Nombre);
+                    $a=Acta::findActa($_GET['municipio'],$Numero,$Curp,$Nombre);
                 }
-                if($Acta == -1){
+                if($a == -1){
                     header( @'Location: listActa.php' ) ;
                 }
+
+                else{
+                    foreach($a as $Acta){
 ?>
 
 <title>Acta de Nacimiento</title>
@@ -453,13 +456,14 @@ function checkAll(){
     </p>
     
     
-    
     </div>
     <input type="image" name="aceptar" id="aceptar" src="images/aceptar.jpg" />
     <div id="leftInput">
     </form>
          
-       
+
+
+       <?php }}?>
      
      </div>
    
