@@ -347,20 +347,42 @@ class Acta{
          }
      }
      
+       public static function filto($privilegio,$municipio,$valor){
+         if($privilegio==0){
+             if(Acta::findActa($municipio,$valor)!=null)
+                return Acta::findActa($municipio,$valor);
+             else
+                 return -1;
+         }
+         else{
+             $array=array();
+             $Usuario=new Usuario("", "", "", "", "");
+             $municipios=$Usuario->getMunicipios();
+             foreach($municipios as $municipio)
+                array_push($array, Acta::findActa($municipio,$valor));
+             if($array!=null)
+                 return $array;
+             else
+                 return -1;
+             
+         }
+     }
      
-      public static function findActa($municipio,$numero,$curp,$nombre){
-            
+     
+     
+     
+      public static function findActa($municipio,$valor){
             
             //Base de datos
            $response=Couch::get("/cgj/Actas_".$municipio);
            $actas=$response["Actas"];
            $actasNombre=array();
            foreach($actas as $acta){
-               if($acta["no"]==$numero)
+               if($acta["no"]==$valor)
                    return $acta;
-               if($acta["curp"]==$curp)
+               if($acta["curp"]==$valor)
                    return $acta;
-               if($acta["nombre"]==$nombre)
+               if($acta["nombre"]==$valor)
                    array_push($actasNombre,$acta);
            }
            if($actasNombre!=null)
