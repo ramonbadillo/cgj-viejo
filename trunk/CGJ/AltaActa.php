@@ -1,19 +1,14 @@
+
+<html>
 <?php
     include("Lugar.php");
     include("Usuario.php");
     include("Couch.php");
     include("Acta.php");
 
-    //$Municipio=$_POST['Municipio'];
     session_start();
     $Municipio=$_SESSION['municipio'];
-    //"Valparaiso";
 
-    //print_r($_POST);
-    //foreach($_POST as $variable){
-    //    echo $variable."/";
-    //}
-    //echo $_POST['Trabajom'];
     
 $No=$_POST['No'];
 $Curp=$_POST['Curp'];
@@ -40,12 +35,12 @@ $PosTrabajom=$_POST['PosTrabajom'];
 $Domiciom=$_POST['Domiciom'];
 $Edocivilm=$_POST['Edocivilm'];
 $Abuelop=$_POST['Abuelop'];
-$Edadp=$_POST['Edadp'];
+$Edadap=$_POST['Edadap'];
 $Nacionalidadap=$_POST['Nacionalidadap'];
 $Abuelap=$_POST['Abuelap'];
 $Edadaap=$_POST['Edadaap'];
 $Nacionalidadaap=$_POST['Nacionalidadaap'];
-$Comiciliosap=$_POST['Comiciliosap'];
+$Domiciliosap=$_POST['Domiciliosap'];
 $Abuelom=$_POST['Abuelom'];
 $Edadam=$_POST['Edadam'];
 $Nacionalidadam=$_POST['Nacionalidadam'];
@@ -63,7 +58,6 @@ $T2nacionalidad=$_POST['T2nacionalidad'];
 $T2domicilio=$_POST['T2domicilio'];
 $T3Nombre=$_POST['T3Nombre'];
 $T3edad=$_POST['T3edad'];
-$T3nacionalidad=$_POST['T3nacionalidad'];
 $T3domicilio=$_POST['T3domicilio'];
 
 $Nooficialia=$_POST['Nooficialia'];
@@ -80,14 +74,16 @@ $Sexo=$_POST['Sexo'];
     $acta = new Acta($No,$Curp,$Nooficialia,$Nolibro,$Localidad,$Fechaderegistro,$Municipio,"Zacatecas",$Nombre,
     //papellido es $Sexo     
     $Sexo,"",$Fden,$Lugardenacimiento,"","",$Comparecio,$Nombrep,"",
-    $Edadp,$Domiciliop,$Origenp,$Edocivilp,$Ocupacionp,$Nombrem,"",$Edadm,"",$Origenm,$Edocivilm,
-    $Ocupacionm,$Abuelop,"",$Nacionalidadap,$Abuelap,$Edadaap,$Nacionalidadaap,"",$Abuelom,$Edadam,
-    "",$Abuelam,$Edadaam,$Nacionalidadaam,$Domiciliosam,$T1nombre,"",$T1Nacionalidad,$T1edad,
+    $Edadp,$Domiciliop,$Origenp,$Edocivilp,$Ocupacionp,$Nombrem,"",$Edadm,$Domiciom,$Origenm,$Edocivilm,
+    $Ocupacionm,$Abuelop,$Edadap,$Nacionalidadap,$Abuelap,$Edadaap,$Nacionalidadaap,$Domiciliosap,$Abuelom,$Edadam,
+    $Nacionalidadam,$Abuelam,$Edadaam,$Nacionalidadaam,$Domiciliosam,$T1nombre,"",$T1Nacionalidad,$T1edad,
     $T1domicilio,$T2nombre,"",$T2nacionalidad,$T2Edad,$T2domicilio,$T3Nombre,"",$T3edad,$T3domicilio,
     "","","","","","","","","","","",
     "","","","","","","",
-    "","","","","",$Trabajop,"",$Vivo);
+    $Escolaridadm,$Trabajom,$Trabajom,$PosTrabajom,$Escoloaridadp,$Trabajop,$PosTrabajop,$Vivo);
 //$Vivo
-    $acta->alta($Municipio);
-
+    
+     $acta->alta($Municipio);
+    @header("Location:listActa.php") ;
 ?>
+</html>
