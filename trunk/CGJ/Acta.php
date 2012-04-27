@@ -327,6 +327,10 @@ class Acta{
      }
      
      public static function getActas($privilegio,$municipio){
+            
+         //Privilegio 1 Todo
+         //Privilegio 0 Municipios
+            //Base de datos
          if($privilegio==0){
              if(Acta::getActasMunicipio ($municipio)!=null)
                 return Acta::getActasMunicipio ($municipio);
@@ -347,31 +351,10 @@ class Acta{
          }
      }
      
-       public static function filto($privilegio,$municipio,$valor){
-         if($privilegio==0){
-             if(Acta::findActa($municipio,$valor)!=null)
-                return Acta::findActa($municipio,$valor);
-             else
-                 return -1;
-         }
-         else{
-             $array=array();
-             $Usuario=new Usuario("", "", "", "", "");
-             $municipios=$Usuario->getMunicipios();
-             foreach($municipios as $municipio)
-                array_push($array, Acta::findActa($municipio,$valor));
-             if($array!=null)
-                 return $array;
-             else
-                 return -1;
-             
-         }
-     }
      
-     
-     
-     
+       
       public static function findActa($municipio,$valor){
+            
             
             //Base de datos
            $response=Couch::get("/cgj/Actas_".$municipio);
@@ -379,9 +362,9 @@ class Acta{
            $actasNombre=array();
            foreach($actas as $acta){
                if($acta["no"]==$valor)
-                   return array_push($actasNombre,$acta);
+                   return $acta;
                if($acta["curp"]==$valor)
-                   return array_push($actasNombre,$acta);
+                   return $acta;
                if($acta["nombre"]==$valor)
                    array_push($actasNombre,$acta);
            }
@@ -390,5 +373,24 @@ class Acta{
            else
                return -1;
      }
+     
+     public static function findActaPrivi($municipio,$valor){
+         
+            $array=array();
+             $Usuario=new Usuario("", "", "", "", "");
+             $municipios=$Usuario->getMunicipios();
+             foreach($municipios as $mun)
+                    array_push($array, Acta::findActa($mun,$valor));
+             if($array!=null)
+                 return $array;
+             else
+                 return -1;
+     }
+     
+     
+     
+     //////////////////////////
+    
+      
 }
 ?>
