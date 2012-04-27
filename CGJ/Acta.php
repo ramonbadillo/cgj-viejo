@@ -379,9 +379,9 @@ class Acta{
            $actasNombre=array();
            foreach($actas as $acta){
                if($acta["no"]==$valor)
-                   return $acta;
+                   return array_push($actasNombre,$acta);
                if($acta["curp"]==$valor)
-                   return $acta;
+                   return array_push($actasNombre,$acta);
                if($acta["nombre"]==$valor)
                    array_push($actasNombre,$acta);
            }
