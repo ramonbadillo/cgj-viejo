@@ -184,7 +184,7 @@ function checkAll(){
       <div class="mTitle"><?php print_r($perron["curp"]); ?></div>
       <div class="mTitle"><?php print_r($perron["municipio"]); ?></div>
       <ul>
-       <li><a href="modActa.php?num=<?php print_r($perron["no"]); ?>&curp=<?php print_r($perron["curp"]); ?>&nombre=<?php print_r($perron["nombre"]); ?>&municipio=<?php print_r($perron["municipio"]); ?>">View</a></li>
+       <li><a href="verActa.php?num=<?php print_r($perron["no"]); ?>&curp=<?php print_r($perron["curp"]); ?>&nombre=<?php print_r($perron["nombre"]); ?>&municipio=<?php print_r($perron["municipio"]); ?>">View</a></li>
        <li><div class="mpSpace">|</div></li>
        <li><a href="#">Delete</a></li>
       </ul>
@@ -203,7 +203,7 @@ function checkAll(){
       <ul>
        <li><a href="modActa.php?num=<?php print_r($municipio["no"]); ?>&curp=<?php print_r($municipio["curp"]); ?>&nombre=<?php print_r($municipio["nombre"]); ?>">Edit</a></li>
        <li><div class="mpSpace">|</div></li>
-       <li><a href="modActa.php?num=<?php print_r($municipio["no"]); ?>&curp=<?php print_r($municipio["curp"]); ?>&nombre=<?php print_r($municipio["nombre"]); ?>">Ver</a></li>
+       <li><a href="verActa.php?num=<?php print_r($municipio["no"]); ?>&curp=<?php print_r($municipio["curp"]); ?>&nombre=<?php print_r($municipio["nombre"]); ?>&municipio=<?php print_r($municipio["municipio"]); ?>">Ver</a></li>
        <li><div class="mpSpace">|</div></li>
        <li><a href="#">Delete</a></li>
       </ul>

@@ -12,8 +12,13 @@
 		$Numero=$_GET['num'];
 		$Curp=$_GET['curp'];
 		$Nombre=$_GET['nombre'];
-		$Acta=Acta::findActa($_SESSION['municipio'],$Numero,$Curp,$Nombre);
-		if($Acta == -1){
+                if($_SESSION['priv']==0){
+                    $Acta=Acta::findActa($_SESSION['municipio'],$Numero,$Curp,$Nombre);
+                }else{
+                    
+                    $Acta=Acta::findActa($_GET['municipio'],$Numero,$Curp,$Nombre);
+                }
+                if($Acta == -1){
                     header( @'Location: listActa.php' ) ;
                 }
 ?>
