@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Registro Usuario</title>
+<title>Editar Usuario</title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
 <link href="style2.css" rel="stylesheet" type="text/css" />
 <link href="prettyForms.css" rel="stylesheet" type="text/css" />
@@ -134,22 +134,45 @@ function checkAll(){
     </ul>
     </div>
    <div id="userinfo"> </div>
-   <h1>Nuevo Usuario</h1>
-      <div id="leftInput">
+         <div id="leftInput">
+	<h3>Seleccionar Usuario</h3>
+     <form id="form1" name="form1" method="post" action="#">
+    <select>
+     <?php 
+		include("Usuario.php");
+		include("Couch.php");
+
+		$user=new Usuario("","","","","");
+        $a=$user->getUsuarios();
+        print_r($a);
+		 foreach($a as $u){?>
+     <option><?php echo $u["usuario"] ?></option>
+     <?php } ?>
+   </select>
+   <input type="button" value="Llenar campos">
+   </form>
+   
+   <?php
+   $id=$_POST['Id'];
+   
+
+   ?>
+ </br><h2>Editar Usuario</h2>
+
         <form id="form1" name="form1" method="post" action="altaUsuario.php">
    <table width="200" border="0">
      <tr>
        <td><label for="Id">No. <br />
          Usuario:</label></td>
        <td><input type="text" name="Id" id="Id" /></td>
-       <td>&nbsp;</td>
-       <td>&nbsp;</td>
+       <td></label></td>
+       <td></td>
      </tr>
      <tr>
        <td>         <label for="Usuario">Usuario: </label></td>
        <td><input name="Usuario" type="text" id="Usuario2" size="40" /></td>
        <td>&nbsp;</td>
-       <td><a href="registro_modi.php">Modificar</a></td>
+       <td>&nbsp;</td>
      </tr>
      <tr>
        <td>     <label for="Nombre">Nombre: </label></td>

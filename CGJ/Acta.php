@@ -361,10 +361,14 @@ class Acta{
            $actas=$response["Actas"];
            $actasNombre=array();
            foreach($actas as $acta){
-               if($acta["no"]==$valor)
-                   return $acta;
-               if($acta["curp"]==$valor)
-                   return $acta;
+               if($acta["no"]==$valor){
+                   array_push($actasNombre,$acta);
+                   return $actasNombre;
+               }
+               if($acta["curp"]==$valor){
+                   array_push($actasNombre,$acta);
+                   return $actasNombre;
+               }
                if($acta["nombre"]==$valor)
                    array_push($actasNombre,$acta);
            }
@@ -379,8 +383,12 @@ class Acta{
             $array=array();
              $Usuario=new Usuario("", "", "", "", "");
              $municipios=$Usuario->getMunicipios();
-             foreach($municipios as $mun)
-                    array_push($array, Acta::findActa($mun,$valor));
+             foreach($municipios as $mun){
+                    $actas=Acta::findActa($mun,$valor);
+                    foreach($actas as $act){
+                        array_push($array, $act);
+                    }     
+             }
              if($array!=null)
                  return $array;
              else

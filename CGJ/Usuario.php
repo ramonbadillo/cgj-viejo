@@ -67,6 +67,29 @@ function  getMunicipios(){
             }
             return $locales;
         }
+        
+        
+function  getUsuarios(){
+            $response=Couch::get("/cgj/Usuarios");
+            $usuarios =$response["Usuarios"];
+            
+            $regreso=array();
+            foreach($usuarios as $usuario){
+                array_push($regreso,$usuario["usuario"]);
+            }
+            return $regreso;
+        }
+        
+        function  showUsuario($user){
+            $response=Couch::get("/cgj/Usuarios");
+            $usuarios =$response["Usuarios"];
+            
+            foreach($usuarios as $usuario){
+                if($user==$usuario["usuario"])
+                    return $usuario;
+            }
+            return -1;
+        }
 
   public function getLocalidades($municipio){
        $response=Couch::get("/cgj/Localidades_".$municipio);
