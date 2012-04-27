@@ -168,7 +168,7 @@ function checkAll(){
 					foreach($municipio as $perron){
 						
 						?>
-                        <div class="message_even">
+     <div class="message_even">
       <div class="mTitle"><?php print_r($perron["no"]); ?></div>
       <div class="mDescription"><?php print_r($perron["nombre"]); ?></div>
       <div class="mTitle"><?php print_r($perron["curp"]); ?></div>
@@ -178,7 +178,7 @@ function checkAll(){
        <li><a href="#">Delete</a></li>
       </ul>
      </div>
-     <div class="message_odd">
+     
                         <?php
 					}
 				}
