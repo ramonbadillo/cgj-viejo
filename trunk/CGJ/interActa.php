@@ -155,21 +155,32 @@ function checkAll(){
       <h2>Fecha de Nacimiento</h2>
      <input name="Fden" type="text" />
     </div>
-    <div id="smallInput">
-     <h2>Hora de nacimiento</h2>
-          <input name="Hora" type="text" />
-    </div>
+    
     <div id="largeInput">
      <h2>Lugar de Nacimiento</h2>
      <input name="Lugardenacimiento" type="text" />
     </div>
  </div>
+ 
    <div id="rightInput">
-<label>            <input type="radio" name="radioButtons" value="1" onchange="doSomething()"/>            
-  <span id="sexo">Hombre</span></label>                  
-<label>            <input type="radio" name="radioButtons" value="2" />            
-  <span class="selected">Mujer</span></label>              
-     <div class="checkpanel">Presentado <input name="Fueregistrado" type="checkbox" value="" />vivo</div>
+   <div id="comboboxPanel">
+          Sexo: 
+            <select name="Sexo" onchange="doSomething()">
+              <option value="Hombre">Hombre</option>
+              <option value="Mujer">Mujer</option>
+            </select>
+          
+     </div>
+   <div id="comboboxPanel">
+          Presentado: 
+            <select name="Vivo" onchange="doSomething()">
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          
+     </div>
+
+     
      <div id="comboboxPanel">
           Compareció: 
             <select name="Comparecio" onchange="doSomething()">
@@ -454,28 +465,7 @@ function checkAll(){
         </div>
     </p>
     
-    <p>
-    <h3>Persona Distinta de los padres que presenta al registrado</h3>
-    </p>
-     <p>
-     <div id="largeInput">
-          <h2>Nombre:</h2>
-          <input name="nombDist" type="text" />
-        </div>
-        <div id="smallInput">
-       <h2>Edad</h2>
-     <input name="edadDist" type="text" />
-    </div>
-    <div id="smallInput">
-       <h2>Nacionalidad</h2>
-     <input name="nacDist" type="text" />
-    </div>
-    
-    <div id="largeInput">
-          <h2>Domicilio:</h2>
-          <input name="DomDist" type="text" />
-        </div>
-    </p>
+   
     
     
     </div>

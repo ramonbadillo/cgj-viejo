@@ -5,7 +5,9 @@
     include("Acta.php");
 
     //$Municipio=$_POST['Municipio'];
-    $Municipio="Valparaiso";
+    session_start();
+    $Municipio=$_SESSION['municipio'];
+    //"Valparaiso";
 
     //print_r($_POST);
     //foreach($_POST as $variable){
@@ -17,7 +19,6 @@ $No=$_POST['No'];
 $Curp=$_POST['Curp'];
 $Nombre=$_POST['Nombre'];
 $Fden=$_POST['Fden'];
-$Hora=$_POST['Hora'];
 $Lugardenacimiento=$_POST['Lugardenacimiento'];
 $Comparecio=$_POST['Comparecio'];
 $Nombrep=$_POST['Nombrep'];
@@ -64,27 +65,28 @@ $T3Nombre=$_POST['T3Nombre'];
 $T3edad=$_POST['T3edad'];
 $T3nacionalidad=$_POST['T3nacionalidad'];
 $T3domicilio=$_POST['T3domicilio'];
-$nombDist=$_POST['nombDist'];
-$edadDist=$_POST['edadDist'];
-$nacDist=$_POST['nacDist'];
-$DomDist=$_POST['DomDist'];
+
 $Nooficialia=$_POST['Nooficialia'];
 $Nolibro=$_POST['Nolibro'];
 $Fechaderegistro=$_POST['Fechaderegistro'];
 $Localidad=$_POST['Localidad'];
 
+$Vivo=$_POST['Vivo'];
+$Sexo=$_POST['Sexo'];
+
 
 
 
     $acta = new Acta($No,$Curp,$Nooficialia,$Nolibro,$Localidad,$Fechaderegistro,$Municipio,"Zacatecas",$Nombre,
-    "","",$Fden,$Lugardenacimiento,"","",$Comparecio,$Nombrep,"",
+    //papellido es $Sexo     
+    $Sexo,"",$Fden,$Lugardenacimiento,"","",$Comparecio,$Nombrep,"",
     $Edadp,$Domiciliop,$Origenp,$Edocivilp,$Ocupacionp,$Nombrem,"",$Edadm,"",$Origenm,$Edocivilm,
     $Ocupacionm,$Abuelop,"",$Nacionalidadap,$Abuelap,$Edadaap,$Nacionalidadaap,"",$Abuelom,$Edadam,
     "",$Abuelam,$Edadaam,$Nacionalidadaam,$Domiciliosam,$T1nombre,"",$T1Nacionalidad,$T1edad,
     $T1domicilio,$T2nombre,"",$T2nacionalidad,$T2Edad,$T2domicilio,$T3Nombre,"",$T3edad,$T3domicilio,
     "","","","","","","","","","","",
     "","","","","","","",
-    "","","","","",$Trabajop,"","Si");
+    "","","","","",$Trabajop,"",$Vivo);
 //$Vivo
     $acta->alta($Municipio);
 
