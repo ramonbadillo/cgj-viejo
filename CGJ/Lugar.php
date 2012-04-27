@@ -19,7 +19,19 @@ class Lugar{
 		$this->Tipo=$tipo;
                 $this->Sobrenombres=self::getSobrenombres();
 	}
-        
+
+
+        function  getMunicipios(){
+            $response=Couch::get("/cgj/Municipios");
+            //return $response["Municipios"];
+            $lLugares =$response["Municipios"];
+            //echo $lLugares;
+            $locales=array();
+            foreach($lLugares as $lugar){
+                array_push($locales,$lugar["Nombre"]);
+            }
+            return $locales;
+        }
 	
 	public function addSobrenombre($nuevoSombrenombre){
             //Tipo 0=Municipio
