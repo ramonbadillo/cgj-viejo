@@ -137,7 +137,7 @@ function checkAll(){
          <div id="leftInput">
 	<h3>Seleccionar Usuario</h3>
      <form id="form1" name="form1" method="post" action="#">
-    <select>
+    <select id="sele" name="sele">
      <?php 
 		include("Usuario.php");
 		include("Couch.php");
@@ -146,56 +146,60 @@ function checkAll(){
         $a=$user->getUsuarios();
         print_r($a);
 		 foreach($a as $u){?>
-     <option><?php echo $u["usuario"] ?></option>
+     <option><?php echo $u ?></option>
      <?php } ?>
    </select>
-   <input type="button" value="Llenar campos">
+    <input type="submit" value="LLenar Campos" />
    </form>
    
    <?php
-   $id=$_POST['Id'];
-   
+   if (isset($_POST["sele"])){
+   $id=$_POST['sele'];
+   $user=new Usuario("","","","","");
+  $a=$user->showUsuario($id);
+  $nom=$a["nombre"];
+    $p=$a["password"];
+   if($id!=""){
 
    ?>
  </br><h2>Editar Usuario</h2>
 
-        <form id="form1" name="form1" method="post" action="altaUsuario.php">
+        <form id="form1" name="form1" method="post" action="cambioUsuario.php">
    <table width="200" border="0">
      <tr>
-       <td><label for="Id">No. <br />
-         Usuario:</label></td>
-       <td><input type="text" name="Id" id="Id" /></td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
        <td></label></td>
        <td></td>
      </tr>
      <tr>
        <td>         <label for="Usuario">Usuario: </label></td>
-       <td><input name="Usuario" type="text" id="Usuario2" size="40" /></td>
-       <td>&nbsp;</td>
+       <td><input name="Usuario" type="text" id="Usuario" size="40" value=<?php echo $a["usuario"]?> /></td>
+       <td><input name="NombreHidden" type="hidden" id="NombreHidden" size="40" value=<?php echo $a["nombre"]?> /></td>
        <td>&nbsp;</td>
      </tr>
      <tr>
        <td>     <label for="Nombre">Nombre: </label></td>
-       <td><input name="Nombre" type="text" id="Usuario" size="40" /></td>
-       <td>&nbsp;</td>
+       <td><input name="Nombre" type="text" id="Nombre" size="40" value=<?php echo $a["nombre"]?> /></td>
+       <td><input name="PassHidden" type="hidden" id="PassHidden" size="40" value=<?php echo $a["password"]?> /></td>
        <td>&nbsp;</td>
      </tr>
      <tr>
        <td>     <label for="mun">Municipio</label></td>
-       <td><input type="text" name="mun" id="mun" /></td>
+       <td><input type="text" name="mun" id="mun" value=<?php echo $a["municipio"]?> /></td>
        <td>&nbsp;</td>
        <td>&nbsp;</td>
      </tr>
      <tr>
        <td>       <label for="uPass">Contraseña: </label></td>
-       <td><input type="password" name="uPass" id="uPass2" /></td>
+       <td><input type="password" name="uPass" id="uPass" value=<?php echo $a["password"]?> /></td>
        <td>       <label for="uPass">Repetir <br />
         Contraseña: </label></td>
-       <td><input type="password" name="uPass2" id="uPass3" /></td>
+       <td><input type="password" name="uPass2" id="uPass2" value=<?php echo $a["password"]?> /></td>
      </tr>
      <tr>
        <td>       <label for="uPass">Privilegio: </label></td>
-       <td><input type="text" name="privilegio" id="uPass" /></td>
+         <td><input type="text" name="privilegio" id="privilegio" value=<?php echo $a["privilegio"]?> /> </td>
        <td>         <input type="image" name="aceptar" id="aceptar" src="images/aceptar.jpg" /></td>
        <td>&nbsp;</td>
      </tr>
@@ -233,3 +237,8 @@ function checkedAll (frm1) {
   </script>
 </body>
 </html>
+<?php }
+else{?>
+</body>
+</html>
+<?php } }?>

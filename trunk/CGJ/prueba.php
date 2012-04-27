@@ -12,6 +12,12 @@ include("Acta.php");
   //      $a=$user->getUsuarios();
     //    print_r($a);
 
-$a=Acta::findActaPrivi("Valparaiso", "Bailador");
-print_r($a);
+//$a=Acta::findActaPrivi("Valparaiso", "Bailador");
+//rint_r($a);
+
+
+
+  $user = new Usuario("saul", "vi", "12","sombrerete",1);
+            $user->cambio($user,"Pedro","12");
+
 ?>
