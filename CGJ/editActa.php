@@ -1,5 +1,4 @@
 
-<html>
 <?php
     include("Lugar.php");
     include("Usuario.php");
@@ -83,7 +82,7 @@ $Sexo=$_POST['Sexo'];
     $Escolaridadm,$Trabajom,$Trabajom,$PosTrabajom,$Escoloaridadp,$Trabajop,$PosTrabajop,$Vivo);
 //$Vivo
     
-     $acta->alta($Municipio);
+     $acta->cambio($Municipio);
+     
     @header("Location:listActa.php") ;
 ?>
-</html>
