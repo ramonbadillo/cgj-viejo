@@ -84,77 +84,14 @@ function checkAll(){
   <input type="image" name="logoMex" id="logoMex" src="images/logo_Blanco.png" />
   <label>CGJ</label></label>
   <div id="menu">
-    <div class="hdrwrpr">
-		  <ul id="topnav">
-		    <li class="nav_press">
-<a href="#" class="nav_item">DASHBOARD</a>
-<div class="menu">
-<ul class="sub_nav">
-<li><a href="#">Elements</a></li>
-<li><a href="#">Moderators</a></li>
-<li><a href="#">Options</a></li>
-<li><a href="#">Languages</a></li>
-</ul>
-<ul class="sub_nav">
-<li><a href="#">Nullam massa nunc</a></li>
-<li><a href="#">llamcorper vel</a></li>
-<li><a href="#">Proin posuere</a></li>
-<li><a href="#">Nullam ac quam</a></li>
-</ul>
-<div class="clear">&nbsp;</div>
-</div>
-</li>
-<li class="unsub">
-<a href="#" class="nav_item">MENUS</a>
-</li>
-<li class="nav_press">
-<a href="#" class="nav_item">PAGES</a>
-<div class="menu2">
-<ul class="sub_nav">
-<li><a href="#">About us</a></li>
-<li><a href="#">Servises</a></li>
-<li><a href="#">Options</a></li>
-<li><a href="#">Portfolio</a></li>
-</ul>
-<ul class="sub_nav">
-<li><a href="#">massa nunc</a></li>
-<li><a href="#">llamcorper Nulla</a></li>
-<li><a href="#">Proin posuere</a></li>
-<li><a href="#">Nullam ac quam</a></li>
-</ul>
-<div class="clear">&nbsp;</div>
-</div>
-</li>
-<li class="unsub">
-<a href="#" class="nav_item">ARCHIVES</a>
-</li>
-<li class="unsub">
-<a href="#" class="nav_item">THEMES</a>
-</li>
-
-</ul>
-</div>
+    <div class="hdrwrpr"></div>
 </div>
   <div id="toppanel">
-   <div id="settings">
-    <ul>
-     <li><a href="#">My Account</a></li>
-     <li><div class="steBlank">|</div></li>
-     <li><a href="#">Settings</a></li>
-     <li><div class="steBlank">|</div></li>
-     <li><a href="#">Log Out</a></li>
-    </ul>
-   </div>
-   <div id="pagenavigation">
-    <ul>
-     <li><a href="#">breadcrumbs</a></li>
-     <li><div class="pnspace">></div></li>
-     <li><a href="#" class="currentpage">current&nbsp;page</a></li>
-    </ul>
-    </div>
+   <div id="settings"></div>
+   <div id="pagenavigation"></div>
    <div id="userinfo"> </div>
    
-   <form id="form_1"  method="POST" action="CambioActa.php" >
+   <form id="form_1"  method="POST" action="editActa.php" >
    <h1>Registro de Acta</h1>
    <p>&nbsp;</p>
    <div id="leftInput">
@@ -531,15 +468,6 @@ function checkAll(){
      </div>
    
  </div>
-  
-<div id="footWrap">
- <div id="footPanel">
-  <a href="#">Bluemoon <span>Tech</span></a>
-  <p>© Copyright  All rights reserved </p>
-  <p>Designed By: <a href="http://www.templateworld.com">TemplateWorld</a></p>
- </div>
-</div>
-
 <script  type="text/javascript">
 
 checked=false;

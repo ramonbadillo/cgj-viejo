@@ -36,12 +36,12 @@ class Lugar{
 	public function addSobrenombre($nuevoSombrenombre){
             //Tipo 0=Municipio
             //Tipo 1=Localidad
-            $doc="Localidades_"+$this->Municipio;
+            $doc="Localidades_".$this->Municipio;
             if($this->Tipo==0)
                 $doc="Municipios";
             
             //Base de datos
-            $response=Couch::get("/cgj/Municipios");
+            $response=Couch::get("/cgj/".$doc);
             $lugares=$response[$doc];
             $contador=0;
             foreach($lugares as $lugar){
@@ -54,7 +54,7 @@ class Lugar{
                 $contador=$contador+1;
             }
             $response[$doc]=$lugares;
-            Couch::put("/cgj/Municipios", json_encode($response));
+            Couch::put("/cgj/".$doc, json_encode($response));
                          
 }
         
