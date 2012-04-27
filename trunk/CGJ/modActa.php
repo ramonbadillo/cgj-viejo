@@ -12,10 +12,13 @@
 		$Numero=$_GET['num'];
 		$Curp=$_GET['curp'];
 		$Nombre=$_GET['nombre'];
-		$Acta=Acta::findActa($_SESSION['municipio'],$Numero,$Curp,$Nombre);
-		if($Acta == -1){
+		$a=Acta::findActa($_SESSION['municipio'],$Numero,$Curp,$Nombre);
+		if($a == -1){
                     header( @'Location: listActa.php' ) ;
                 }
+                else{
+                    foreach($a as $Acta){
+
 ?>
 
 <title>Acta de Nacimiento</title>
@@ -523,7 +526,7 @@ function checkAll(){
     <div id="leftInput">
     </form>
          
-       
+       <?php }}?>
      
      </div>
    
