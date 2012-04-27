@@ -271,7 +271,7 @@ class Acta{
         
     }
     
-     public function delete($Municipio){
+     public static function delete($Municipio){
         $response=Couch::get("/cgj/Actas_".$Municipio);
         $actas=$response["Actas"];
         

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+4<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -72,49 +72,13 @@ function checkAll(){
     <div class="hdrwrpr">
 		  <ul id="topnav">
 		    <li class="nav_press">
-<a href="#" class="nav_item">DASHBOARD</a>
-<div class="menu">
-<ul class="sub_nav">
-<li><a href="#">Elements</a></li>
-<li><a href="#">Moderators</a></li>
-<li><a href="#">Options</a></li>
-<li><a href="#">Languages</a></li>
-</ul>
-<ul class="sub_nav">
-<li><a href="#">Nullam massa nunc</a></li>
-<li><a href="#">llamcorper vel</a></li>
-<li><a href="#">Proin posuere</a></li>
-<li><a href="#">Nullam ac quam</a></li>
-</ul>
-<div class="clear">&nbsp;</div>
-</div>
+<a href="<?php if($_SESSION['priv']==1){ echo "registro.html";} ?>" class="nav_item">DASHBOARD</a>
 </li>
 <li class="unsub">
-<a href="#" class="nav_item">MENUS</a>
+<a href="<?php if($_SESSION['priv']==1){ echo "registro_modi.php";} ?>" class="nav_item">MENUS</a>
 </li>
 <li class="nav_press">
-<a href="#" class="nav_item">PAGES</a>
-<div class="menu2">
-<ul class="sub_nav">
-<li><a href="#">About us</a></li>
-<li><a href="#">Servises</a></li>
-<li><a href="#">Options</a></li>
-<li><a href="#">Portfolio</a></li>
-</ul>
-<ul class="sub_nav">
-<li><a href="#">massa nunc</a></li>
-<li><a href="#">llamcorper Nulla</a></li>
-<li><a href="#">Proin posuere</a></li>
-<li><a href="#">Nullam ac quam</a></li>
-</ul>
-<div class="clear">&nbsp;</div>
-</div>
-</li>
-<li class="unsub">
-<a href="#" class="nav_item">ARCHIVES</a>
-</li>
-<li class="unsub">
-<a href="#" class="nav_item">THEMES</a>
+<a href="<?php if($_SESSION['priv']==1){ echo "nomMuni.php";} ?>" class="nav_item">PAGES</a>
 </li>
 
 </ul>
@@ -122,13 +86,6 @@ function checkAll(){
   </div>
   <div id="toppanel">
    <div id="settings">
-    <ul>
-     <li><a href="#">My Account</a></li>
-     <li><div class="steBlank">|</div></li>
-     <li><a href="#">Settings</a></li>
-     <li><div class="steBlank">|</div></li>
-     <li><a href="#">Log Out</a></li>
-    </ul>
     <div id="searchpanel">
     <form name="input" action="filtro.php" method="get">
      <input name="search" type="text" />
@@ -137,18 +94,8 @@ function checkAll(){
     </div>
    </div>
    <div id="pagenavigation">
-    <ul>
-     <li><a href="#">breadcrumbs</a></li>
-     <li><div class="pnspace">></div></li>
-     <li><a href="#" class="currentpage">current&nbsp;page</a></li>
-    </ul>
     </div>
    <div id="userinfo">
-    <ul>
-     <li><a href="#">Welcome,&nbsp;<span>USER!</span></a></li>
-     <li><div class="userBlank">|</div></li>
-     <li><a href="#">You&nbsp;have&nbsp;2&nbsp;messages!</a></li>
-    </ul>
    </div>
    <h1>Listado de Actas</h1>
    <p>A continuación se despliegan todos las actas del sistema.</p>
@@ -205,7 +152,7 @@ function checkAll(){
        <li><div class="mpSpace">|</div></li>
        <li><a href="verActa.php?num=<?php print_r($municipio["no"]); ?>&curp=<?php print_r($municipio["curp"]); ?>&nombre=<?php print_r($municipio["nombre"]); ?>&municipio=<?php print_r($municipio["municipio"]); ?>">Ver</a></li>
        <li><div class="mpSpace">|</div></li>
-       <li><a href="#">Delete</a></li>
+       <li><a href="deleteActa.php?num=<?php print_r($municipio["no"]); ?>&curp=<?php print_r($municipio["curp"]); ?>">Delete</a></li>
       </ul>
      </div>
                     <?php
