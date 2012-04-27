@@ -130,8 +130,10 @@ function checkAll(){
      <li><a href="#">Log Out</a></li>
     </ul>
     <div id="searchpanel">
+    <form name="input" action="filtro.php" method="get">
      <input name="search" type="text" />
-     <a href="#">SEARCH</a>
+     <input type="image" name="aceptar" id="aceptar" src="images/aceptar.jpg" />
+     </form>
     </div>
    </div>
    <div id="pagenavigation">
@@ -182,7 +184,7 @@ function checkAll(){
       <div class="mTitle"><?php print_r($perron["curp"]); ?></div>
       <div class="mTitle"><?php print_r($perron["municipio"]); ?></div>
       <ul>
-       <li><a href="modActa.php?num=<?php print_r($perron["no"]); ?>&curp=<?php print_r($perron["curp"]); ?>&nombre=<?php print_r($perron["nombre"]); ?>">Edit</a></li>
+       <li><a href="modActa.php?num=<?php print_r($perron["no"]); ?>&curp=<?php print_r($perron["curp"]); ?>&nombre=<?php print_r($perron["nombre"]); ?>&municipio=<?php print_r($perron["municipio"]); ?>">View</a></li>
        <li><div class="mpSpace">|</div></li>
        <li><a href="#">Delete</a></li>
       </ul>
@@ -201,10 +203,11 @@ function checkAll(){
       <ul>
        <li><a href="modActa.php?num=<?php print_r($municipio["no"]); ?>&curp=<?php print_r($municipio["curp"]); ?>&nombre=<?php print_r($municipio["nombre"]); ?>">Edit</a></li>
        <li><div class="mpSpace">|</div></li>
+       <li><a href="modActa.php?num=<?php print_r($municipio["no"]); ?>&curp=<?php print_r($municipio["curp"]); ?>&nombre=<?php print_r($municipio["nombre"]); ?>">Ver</a></li>
+       <li><div class="mpSpace">|</div></li>
        <li><a href="#">Delete</a></li>
       </ul>
      </div>
-     <div class="message_odd">
                     <?php
 				}
 			}

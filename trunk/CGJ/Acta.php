@@ -378,16 +378,18 @@ class Acta{
                return -1;
      }
      
-     public static function findActaPrivi($municipio,$valor){
+     public static function findActaPrivi($valor){
          
             $array=array();
              $Usuario=new Usuario("", "", "", "", "");
              $municipios=$Usuario->getMunicipios();
              foreach($municipios as $mun){
                     $actas=Acta::findActa($mun,$valor);
-                    foreach($actas as $act){
-                        array_push($array, $act);
-                    }     
+                    if($actas != -1){
+                        foreach($actas as $act){
+                            array_push($array, $act);
+                        }
+                    }
              }
              if($array!=null)
                  return $array;
