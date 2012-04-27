@@ -72,13 +72,13 @@ function checkAll(){
     <div class="hdrwrpr">
 		  <ul id="topnav">
 		    <li class="nav_press">
-<a href="<?php if($_SESSION['priv']==1){ echo "registro.html";} ?>" class="nav_item">DASHBOARD</a>
+<a href="<?php if($_SESSION['priv']==1){ echo "registro.html";} ?>" class="nav_item">Usuarios</a>
 </li>
 <li class="unsub">
-<a href="<?php if($_SESSION['priv']==1){ echo "registro_modi.php";} ?>" class="nav_item">MENUS</a>
+<a href="<?php if($_SESSION['priv']==1){ echo "registro_modi.php";} ?>" class="nav_item">Edit User</a>
 </li>
 <li class="nav_press">
-<a href="<?php if($_SESSION['priv']==1){ echo "nomMuni.php";} ?>" class="nav_item">PAGES</a>
+<a href="<?php if($_SESSION['priv']==1){ echo "nomMuni.php";} ?>" class="nav_item">Sobrenombre</a>
 </li>
 
 </ul>
