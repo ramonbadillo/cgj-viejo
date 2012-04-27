@@ -180,9 +180,7 @@ function checkAll(){
       <div class="mDescription"><?php print_r($acta["nombre"]); ?></div>
       <div class="mDescription"><?php print_r($acta["curp"]); ?></div>
       <ul>
-       <li><a href="modActa.php?num=<?php print_r($acta["no"]); ?>&curp=<?php print_r($acta["curp"]); ?>&nombre=<?php print_r($acta["nombre"]); ?>">Edit</a></li>
-       <li><div class="mpSpace">|</div></li>
-       <li><a href="modActa.php?num=<?php print_r($acta["no"]); ?>&curp=<?php print_r($acta["curp"]); ?>&nombre=<?php print_r($acta["nombre"]); ?>">Ver</a></li>
+       <li><a href="verActa.php?num=<?php print_r($acta["no"]); ?>&curp=<?php print_r($acta["curp"]); ?>&nombre=<?php print_r($acta["nombre"]); ?>&municipio=<?php print_r($municipio["municipio"]); ?>">Ver</a></li>
        <li><div class="mpSpace">|</div></li>
        <li><a href="#">Delete</a></li>
       </ul>
@@ -202,7 +200,7 @@ function checkAll(){
       <ul>
        <li><a href="modActa.php?num=<?php print_r($acta["no"]); ?>&curp=<?php print_r($acta["curp"]); ?>&nombre=<?php print_r($acta["nombre"]); ?>">Edit</a></li>
        <li><div class="mpSpace">|</div></li>
-       <li><a href="modActa.php?num=<?php print_r($acta["no"]); ?>&curp=<?php print_r($acta["curp"]); ?>&nombre=<?php print_r($acta["nombre"]); ?>">Ver</a></li>
+       <li><a href="verActa.php?num=<?php print_r($acta["no"]); ?>&curp=<?php print_r($acta["curp"]); ?>&nombre=<?php print_r($acta["nombre"]); ?>&municipio=<?php print_r($municipio["municipio"]); ?>">Ver</a></li>
        <li><div class="mpSpace">|</div></li>
        <li><a href="#">Delete</a></li>
       </ul>
