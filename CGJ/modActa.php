@@ -174,15 +174,30 @@ function checkAll(){
     
     <div id="largeInput">
      <h2>Lugar de Nacimiento</h2>
-     <input name="Lugardenacimiento" type="text" />
+     <input value="<?php print_r($Acta["lugardenacimiento"]); ?>" name="Lugardenacimiento" type="text" />
     </div>
  </div>
    <div id="rightInput">
-<label>            <input type="radio" name="radioButtons" value="1" onchange="doSomething()"/>            
-  <span id="sexo">Hombre</span></label>                  
-<label>            <input type="radio" name="radioButtons" value="2" />            
-  <span class="selected">Mujer</span></label>              
-     <div class="checkpanel">Presentado <input name="Fueregistrado" type="checkbox" value="" />vivo</div>
+      <div id="comboboxPanel">
+          Sexo: 
+        <select name="Sexo" onchange="doSomething()" >
+        		<option value="<?php print_r($Acta["papellido"]); ?>"><?php print_r($Acta["papellido"]); ?></option>
+              <option value="Hombre">Hombre</option>
+              <option value="Mujer">Mujer</option>
+            </select>
+          
+     </div>
+   <div id="comboboxPanel">
+          Presentado: 
+    <select  name="Vivo" onchange="doSomething()">
+    <option value="<?php print_r($Acta["papellido"]); ?>"><?php print_r($Acta["vivo"]); ?></option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          
+     </div>      
+             
+     
      <div id="comboboxPanel">
           Compareció: 
             <select name="Comparecio" onchange="doSomething()">
@@ -200,7 +215,7 @@ function checkAll(){
     <h3>Datos de los Padres</h3>
         <div id="largeInput">
           <h2>Nombre del PADRE:</h2>
-          <input name="Nombrep" type="text" />
+          <input value="<?php print_r($Acta["nombrep"]); ?>" name="Nombrep" type="text" />
         </div>
         <div id="comboboxPanel">
       <p>Escolaridad</p>
@@ -218,7 +233,7 @@ function checkAll(){
       </div>
         <div id="largeInput">
           <h2>Origen:</h2>
-          <input name="Origenp" type="text" />
+          <input value="<?php print_r($Acta["origenp"]); ?>" name="Origenp" type="text" />
         </div>
         <div id="comboboxPanel">
       <p>Trabajo</p>
@@ -230,11 +245,11 @@ function checkAll(){
       </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="Edadp" type="text" />
+     <input value="<?php print_r($Acta["edadp"]); ?>" name="Edadp" type="text" />
     </div>
     <div id="mediumInput">
      <h2>OcupaciÓn</h2>
-     <input name="Ocupacionp" type="text" />
+     <input value="<?php print_r($Acta["ocupacionp"]); ?>" name="Ocupacionp" type="text" />
     </div>
     <div id="comboboxPanel">
       <p>Posición en su trabajo</p>
@@ -252,7 +267,7 @@ function checkAll(){
       </div>
       <div id="mediumInput">
      <h2>Domicilio</h2>
-     <input name="Domiciliop" type="text" />
+     <input value="<?php print_r($Acta["domiciliop"]); ?>" name="Domiciliop" type="text" />
     </div>
     <div id="comboboxPanel">
       <p>Estado Civil</p>
@@ -271,7 +286,7 @@ function checkAll(){
         <p>&nbsp;</p>
         <div id="largeInput">
           <h2>Nombre de la MADRE:</h2>
-          <input name="Nombrem" type="text" />
+          <input value="<?php print_r($Acta["nombrem"]); ?>" name="Nombrem" type="text" />
         </div>
         <div id="comboboxPanel">
       <p>Escolaridad</p>
@@ -289,10 +304,10 @@ function checkAll(){
       </div>
         <div id="largeInput">
           <h2>Origen:</h2>
-          <input name="Origenm" type="text" />
+          <input value="<?php print_r($Acta["origenm"]); ?>" name="Origenm" type="text" />
         </div>
         <div id="comboboxPanel">
-      <p>Trabajo</p>
+      <p>Trabajo      </p>
           <select name="Trabajom" onchange="doSomething()">
             <option value="No trabaja">No trabaja</option>
             <option value="Trabaja sector Agropecuario">Trabaja sector Agropecuario</option>
@@ -300,12 +315,13 @@ function checkAll(){
           </select>
       </div>
         <div id="smallInput">
-       <h2>Edad</h2>
-     <input name="Edadm" type="text" />
-    </div>
+       <h2>Edad
+         <input value="<?php print_r($Acta["edadm"]); ?>" name="Edadm" type="text" />
+       </h2>
+      </div>
     <div id="mediumInput">
      <h2>OcupaciÓn</h2>
-     <input name="Ocupacionm" type="text" />
+     <input value="<?php print_r($Acta["ocupacionm"]); ?>" name="Ocupacionm" type="text" />
     </div>
     <div id="comboboxPanel">
       <p>Posición en su trabajo</p>
@@ -323,7 +339,7 @@ function checkAll(){
       </div>
       <div id="mediumInput">
      <h2>Domicilio</h2>
-     <input name="Domiciom" type="text" />
+     <input value="<?php print_r($Acta["domiciliom"]); ?>" name="Domiciom" type="text" />
     </div>
     <div id="comboboxPanel">
       <p>Estado Civil</p>
@@ -350,64 +366,64 @@ function checkAll(){
      <p>
      <div id="largeInput">
           <h2>Abuelo Paterno:</h2>
-          <input name="Abuelop" type="text" />
+          <input value="<?php print_r($Acta["abuelop"]); ?>" name="Abuelop" type="text" />
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="Edadp" type="text" />
+     <input value="<?php print_r($Acta["edadap"]); ?>" name="Edadp" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
-     <input name="Nacionalidadap" type="text" />
+     <input value="<?php print_r($Acta["nacionalidadap"]); ?>" name="Nacionalidadap" type="text" />
     </div>
 
      <div id="largeInput">
           <h2>AbuelA Paterna:</h2>
-          <input name="Abuelap" type="text" />
+          <input value="<?php print_r($Acta["abuelap"]); ?>" name="Abuelap" type="text" />
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="Edadaap" type="text" />
+     <input value="<?php print_r($Acta["edadaap"]); ?>" name="Edadaap" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
-     <input name="Nacionalidadaap" type="text" />
+     <input value="<?php print_r($Acta["nacionalidadaap"]); ?>" name="Nacionalidadaap" type="text" />
     </div>
         <div id="largeInput">
           <h2>Domicilio:</h2>
-          <input name="Comiciliosap" type="text" />
+          <input value="<?php print_r($Acta["domiciliosap"]); ?>" name="Comiciliosap" type="text" />
         </div>
     </p>
     
     <p>
      <div id="largeInput">
           <h2>Abuelo MaTerno:</h2>
-          <input name="Abuelom" type="text" />
+          <input value="<?php print_r($Acta["abuelom"]); ?>" name="Abuelom" type="text" />
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="Edadam" type="text" />
+     <input value="<?php print_r($Acta["edadam"]); ?>" name="Edadam" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
-     <input name="Nacionalidadam" type="text" />
+     <input value="<?php print_r($Acta["nacionalidadam"]); ?>" name="Nacionalidadam" type="text" />
     </div>
 
      <div id="largeInput">
           <h2>AbuelA Materna:</h2>
-          <input name="Abuelam" type="text" />
+          <input value="<?php print_r($Acta["abuelam"]); ?>" name="Abuelam" type="text" />
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="Edadaam" type="text" />
+     <input value="<?php print_r($Acta["edadaam"]); ?>" name="Edadaam" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
-     <input name="Nacionaliadadaam" type="text" />
+     <input value="<?php print_r($Acta["nacionalidadaam"]); ?>" name="Nacionaliadadaam" type="text" />
     </div>
         <div id="largeInput">
           <h2>Domicilio:</h2>
-          <input name="Domiciliosam" type="text" />
+          <input value="<?php print_r($Acta["domiciliosam"]); ?>" name="Domiciliosam" type="text" />
         </div>
     </p>
     
@@ -417,53 +433,53 @@ function checkAll(){
      <p>
      <div id="largeInput">
           <h2>Nombre:</h2>
-          <input name="T1nombre" type="text" />
+          <input value="<?php print_r($Acta["t1nombre"]); ?>" name="T1nombre" type="text" />
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="T1edad" type="text" />
+     <input value="<?php print_r($Acta["t1edad"]); ?>" name="T1edad" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
-     <input name="T1Nacionalidad" type="text" />
+     <input value="<?php print_r($Acta["t1nacionalidad"]); ?>" name="T1Nacionalidad" type="text" />
     </div>
     
     <div id="largeInput">
           <h2>Domicilio:</h2>
-          <input name="T1domicilio" type="text" />
+          <input value="<?php print_r($Acta["t1domicilio"]); ?>" name="T1domicilio" type="text" />
         </div>
 
      <div id="largeInput">
           <h2>Nombre:</h2>
-          <input name="T2nombre" type="text" />
+          <input value="<?php print_r($Acta["t2nombre"]); ?>" name="T2nombre" type="text" />
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="T2Edad" type="text" />
+     <input value="<?php print_r($Acta["t2edad"]); ?>" name="T2Edad" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
-     <input name="T2nacionalidad" type="text" />
+     <input value="<?php print_r($Acta["t2nacionalidad"]); ?>" name="T2nacionalidad" type="text" />
     </div>
         <div id="largeInput">
           <h2>Domicilio:</h2>
-          <input name="T2domicilio" type="text" />
+          <input value="<?php print_r($Acta["t2domicilio"]); ?>" name="T2domicilio" type="text" />
         </div>
         <div id="largeInput">
           <h2>Nombre:</h2>
-          <input name="T3Nombre" type="text" />
+          <input value="<?php print_r($Acta["t3nombre"]); ?>" name="T3Nombre" type="text" />
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="T3edad" type="text" />
+     <input value="<?php print_r($Acta["t3edad"]); ?>" name="T3edad" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
-     <input name="T3nacionalidad" type="text" />
+     <input value="<?php print_r($Acta["t3nacionalidad"]); ?>" name="T3nacionalidad" type="text" />
     </div>
         <div id="largeInput">
           <h2>Domicilio:</h2>
-          <input name="T3domicilio" type="text" />
+          <input value="<?php print_r($Acta["t3domicilio"]); ?>" name="T3domicilio" type="text" />
         </div>
     </p>
     
@@ -473,20 +489,20 @@ function checkAll(){
      <p>
      <div id="largeInput">
           <h2>Nombre:</h2>
-          <input name="nombDist" type="text" />
+          <input value="<?php print_r($Acta["nombrep"]); ?>" name="nombDist" type="text" />
         </div>
         <div id="smallInput">
        <h2>Edad</h2>
-     <input name="edadDist" type="text" />
+     <input value="<?php print_r($Acta["nombrep"]); ?>" name="edadDist" type="text" />
     </div>
     <div id="smallInput">
        <h2>Nacionalidad</h2>
-     <input name="nacDist" type="text" />
+     <input value="<?php print_r($Acta["nombrep"]); ?>" name="nacDist" type="text" />
     </div>
     
     <div id="largeInput">
           <h2>Domicilio:</h2>
-          <input name="DomDist" type="text" />
+          <input value="<?php print_r($Acta["nombrep"]); ?>" name="DomDist" type="text" />
         </div>
     </p>
     
@@ -496,20 +512,20 @@ function checkAll(){
      <p>
      <div id="smallInput">
        <h2>Numero Oficialia:</h2>
-     <input id="Nooficialia" name="Nooficialia" type="text" />
+     <input value="<?php print_r($Acta["nooficialia"]); ?>" id="Nooficialia" name="Nooficialia" type="text" />
   </div>
     <div id="smallInput">
        <h2>Numero Libro:</h2>
-     <input name="Nolibro" type="text" />
+     <input value="<?php print_r($Acta["nolibro"]); ?>" name="Nolibro" type="text" />
     </div>
     <div id="smallInput">
        <h2>Fecha de Registro:</h2>
-     <input name="Fechaderegistro" type="text" />
+     <input value="<?php print_r($Acta["fechaderegistro"]); ?>" name="Fechaderegistro" type="text" />
     </div>
     
     <div id="largeInput">
           <h2>Localidad:</h2>
-          <input name="Localidad" type="text" />
+          <input value="<?php print_r($Acta["localidad"]); ?>" name="Localidad" type="text" />
         </div>
     </p>
     
