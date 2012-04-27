@@ -1,84 +1,84 @@
-No - CRIP /
-Curp /
-Nooficialia /
-Nolibro /
-Localidad /
-Fechaderegistro /
-Municipio- 
-Entidadfederativa-
-Nombre /
-Papellido-
-Sapellido-
-Fden /
-Lugardenacimiento /
-Nodecertifdenacimiento-
-Fueregistrado /
-Comparecio /
-Nombrep /
-Nacionalidadp-
-Edadp /
-Domiciliop /
-Origenp /
-Edocivilp /
-Ocupacionp /
-Nombrem /
-Nacionalidadm-
-Edadm /
-Domiciliom /
-Origenm /
-Edocivilm /
-Ocupacionm /
-Abuelop /
-Edadap /
-Nacionalidadap /
-Abuelap /
-Edadaap /
-Nacionalidadaap /
-Domiciliosap /
-Abuelom /
-Edadam /
-Nacionalidadam /
-Abuelam /
-Edadaam /
-Nacionalidadaam /
-Domiciliosam /
-T1nombre /
-T1origen-
-T1nacionalidad /
-T1edad /
-T1domicilio /
-T2nombre /
-T2origen-
-T2nacionalidad /
-T2edad /
-T2domicilio /
-T3nombre /
-T3parentesco-
-T3edad /
-T3domicilio/
-T3edocivil-
-Firmapadre-
-Firmamadre-
-Firmat3-
-Firmat1-
-Firmat2-
-Huella-
-Coficial-
-Conombre-
-Cofirma-
-Sellorc-
-Anotaciones-
-Nacimiento-
-Ordendparto-
-Dondeseatendioelparto-
-Quienatendioelparto-
-Nohijosnacidosv-
-Nohijosvivenhogar-
-Unionmadre-
-Escolaridadm / 
-Trabajom /
-Posiciontrabajom /
-Escolaridadp /
-Trabajop /
-Posiciontrabajop /
+No
+Curp
+Nooficialia
+Nolibro
+Localidad
+Fechaderegistro
+Municipio
+Entidadfederativa
+Nombre
+Papellido
+Sapellido
+Fden
+Lugardenacimiento
+Nodecertifdenacimiento
+Fueregistrado
+Comparecio
+Nombrep
+Nacionalidadp
+Edadp
+Domiciliop
+Origenp
+Edocivilp
+Ocupacionp
+Nombrem
+Nacionalidadm
+Edadm
+Domiciliom
+Origenm
+Edocivilm
+Ocupacionm
+Abuelop
+Edadap
+Nacionalidadap
+Abuelap
+Edadaap
+Nacionalidadaap
+Domiciliosap
+Abuelom
+Edadam
+Nacionalidadam
+Abuelam
+Edadaam
+Nacionalidadaam
+Domiciliosam
+T1nombre
+T1origen
+T1nacionalidad
+T1edad
+T1domicilio
+T2nombre
+T2origen
+T2nacionalidad
+T2edad
+T2domicilio
+T3nombre
+T3parentesco
+T3edad
+T3domicilio
+T3edocivil
+Firmapadre
+Firmamadre
+Firmat3
+Firmat1
+Firmat2
+Huella
+Coficial
+Conombre
+Cofirma
+Sellorc
+Anotaciones
+Nacimiento
+Ordendparto
+Dondeseatendioelparto
+Quienatendioelparto
+Nohijosnacidosv
+Nohijosvivenhogar
+Unionmadre
+Escolaridadm
+Trabajom
+Posiciontrabajom
+Escolaridadp
+Trabajop
+Posiciontrabajop
 Vivo

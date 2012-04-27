@@ -1,7 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+        include("Couch.php");
+        include("Lugar.php");
+		include("Inicio.php");
+		include("Usuario.php");
+		include("Acta.php");
+
+		session_start();
+		$Numero=$_GET['num'];
+		$Curp=$_GET['curp'];
+		$Nombre=$_GET['nombre'];
+		$Acta=Acta::findActa($_SESSION['municipio'],$Numero,$Curp,$Nombre);
+		if($Acta == -1){
+                    header( @'Location: listActa.php' ) ;
+                }
+?>
+
 <title>Acta de Nacimiento</title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
 <link href="style2.css" rel="stylesheet" type="text/css" />
@@ -134,29 +150,28 @@ function checkAll(){
     </ul>
     </div>
    <div id="userinfo"> </div>
+   
+   <form id="form_1"  method="POST" action="AltaActa.php" >
    <h1>Registro de Acta</h1>
    <p>&nbsp;</p>
    <div id="leftInput">
      <div id="smallInput">
        <h2>No.:</h2>
-     <input id= name="CRIP" type="text" />
+     <input value="<?php echo $Acta["no"]; ?>" name="No" type="text"  />
     </div>
     <div id="mediumInput">
      <h2>CURP</h2>
-     <input name="Curp" type="text" />
+     <input value="<?php echo $Acta["curp"]; ?>" name="Curp" type="text" />
     </div>
     <div id="largeInput">
      <h2>Nombre del registrado:</h2>
-     <input name="Nombre" type="text" />
+     <input value="<?php echo $Acta["nombre"]; ?>" name="Nombre" type="text" />
     </div>
     <div id="mediumInput">
       <h2>Fecha de Nacimiento</h2>
-     <input name="Fden" type="text" />
+     <input value="<?php print_r($Acta["fden"]); ?>" name="Fden" type="text" />
     </div>
-    <div id="smallInput">
-     <h2>Hora de nacimiento</h2>
-          <input name="Hora" type="text" />
-    </div>
+    
     <div id="largeInput">
      <h2>Lugar de Nacimiento</h2>
      <input name="Lugardenacimiento" type="text" />
@@ -171,22 +186,18 @@ function checkAll(){
      <div id="comboboxPanel">
           Compareció: 
             <select name="Comparecio" onchange="doSomething()">
-              <option>El Padre</option>
-              <option>La Madre</option>
-              <option>Ambos</option>
-              <option>Otro...</option>
+              <option value="El Padre">El Padre</option>
+              <option value="La Madre">La Madre</option>
+              <option value="Ambos">Ambos</option>
+              <option value="Otro...">Otro...</option>
             </select>
           
      </div>
    </div>
-  </div>
-  
-  
-  <div id="bottomPanel">
+   <div id="bottomPanel">
    <div id="leftpanel">
+    <p>&nbsp;</p>
     <h3>Datos de los Padres</h3>
-    <form id="myForm" action=""	 onsubmit="return(showFormData(this))">
-      <fieldset>
         <div id="largeInput">
           <h2>Nombre del PADRE:</h2>
           <input name="Nombrep" type="text" />
@@ -194,16 +205,16 @@ function checkAll(){
         <div id="comboboxPanel">
       <p>Escolaridad</p>
           <select name="Escoloaridadp" onchange="doSomething()">
-            <option>Sin Escolaridad</option>
-            <option>1 a 3 Años de Primaria</option>
-            <option>4 a 5 Años de Primaria</option>
-            <option>Primaria Completa</option>
-            <option>Secundaria</option>
-            <option>Preparatoria</option
-            ><option>Profesional</option>
+            <option value="Sin Escolaridad">Sin Escolaridad</option>
+            <option value="1 a 3 Años de Primaria">1 a 3 Años de Primaria</option>
+            <option value="4 a 5 Años de Primaria">4 a 5 Años de Primaria</option>
+            <option value="Primaria Completa">Primaria Completa</option>
+            <option value="Secundaria">Secundaria</option>
+            <option value="Preparatoria">Preparatoria</option
+            ><option value="Profesional">Profesional</option>
             <option>Otra...</option>
             
-            </select>
+          </select>
       </div>
         <div id="largeInput">
           <h2>Origen:</h2>
@@ -212,10 +223,10 @@ function checkAll(){
         <div id="comboboxPanel">
       <p>Trabajo</p>
           <select name="Trabajop" onchange="doSomething()">
-            <option>No trabaja</option>
-            <option>Trabaja sector Agropecuario</option>
-            <option>Alguna otra actividad</option>
-            </select>
+            <option value="No trabaja">No trabaja</option>
+            <option value="Trabaja sector Agropecuario">Trabaja sector Agropecuario</option>
+            <option value="Alguna otra actividad">Alguna otra actividad</option>
+          </select>
       </div>
         <div id="smallInput">
        <h2>Edad</h2>
@@ -228,16 +239,16 @@ function checkAll(){
     <div id="comboboxPanel">
       <p>Posición en su trabajo</p>
           <select name="PosTrabajop" onchange="doSomething()">
-            <option>Obrero</option>
-            <option>Jornalero o Peón</option>
-            <option>Empleado</option>
-            <option>Patrón o Empresario</option>
-            <option>Miembro de Cooperativa</option>
-            <option>Trabajador no remunerado</option>
-            <option>Trabajador en la via publica</option>
-            <option>o en su vivienda</option>
-            <option>o en su estrablecimiento</option>
-            </select>
+            <option value="Obrero">Obrero</option>
+            <option value="Jornalero o Peón">Jornalero o Peón</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Patrón o Empresario">Patrón o Empresario</option>
+            <option value="Miembro de Cooperativa">Miembro de Cooperativa</option>
+            <option value="Trabajador no remunerado">Trabajador no remunerado</option>
+            <option value="Trabajador en la via publica">Trabajador en la via publica</option>
+            <option value="o en su vivienda">o en su vivienda</option>
+            <option value="o en su estrablecimiento">o en su estrablecimiento</option>
+        </select>
       </div>
       <div id="mediumInput">
      <h2>Domicilio</h2>
@@ -246,24 +257,18 @@ function checkAll(){
     <div id="comboboxPanel">
       <p>Estado Civil</p>
           <select name="Edocivilp" onchange="doSomething()">
-            <option>Casado</option>
-            <option>Viudo</option>
-            <option>Divorciado</option>
-            <option>Unión libre</option>
-            </select>
+            <option value="Casado">Casado</option>
+            <option value="Viudo">Viudo</option>
+            <option value="Divorciado">Divorciado</option>
+            <option value="Unión libre">Unión libre</option>
+        </select>
       </div>
     
-    <div id="
+    <div id="">
+    
     <legend></legend>
 
         <p>&nbsp;</p>
-      </fieldset>
-      
-      <fieldset>
-        
-        <div id="largeInput"></div>
-      </fieldset>
-      <fieldset>
         <div id="largeInput">
           <h2>Nombre de la MADRE:</h2>
           <input name="Nombrem" type="text" />
@@ -271,16 +276,16 @@ function checkAll(){
         <div id="comboboxPanel">
       <p>Escolaridad</p>
           <select name="Escolaridadm" onchange="doSomething()">
-            <option>Sin Escolaridad</option>
-            <option>1 a 3 Años de Primaria</option>
-            <option>4 a 5 Años de Primaria</option>
-            <option>Primaria Completa</option>
-            <option>Secundaria</option>
-            <option>Preparatoria</option
-            ><option>Profesional</option>
-            <option>Otra...</option>
+            <option value="Sin Escolaridad">Sin Escolaridad</option>
+            <option value="1 a 3 Años de Primaria">1 a 3 Años de Primaria</option>
+            <option value="4 a 5 Años de Primaria">4 a 5 Años de Primaria</option>
+            <option value="Primaria Completa">Primaria Completa</option>
+            <option value="Secundaria">Secundaria</option>
+            <option value="Preparatoria">Preparatoria</option>
+           	<option value="Profesional">Profesional</option>
+            <option value="Otra...">Otra...</option>
             
-            </select>
+          </select>
       </div>
         <div id="largeInput">
           <h2>Origen:</h2>
@@ -289,10 +294,10 @@ function checkAll(){
         <div id="comboboxPanel">
       <p>Trabajo</p>
           <select name="Trabajom" onchange="doSomething()">
-            <option>No trabaja</option>
-            <option>Trabaja sector Agropecuario</option>
-            <option>Alguna otra actividad</option>
-            </select>
+            <option value="No trabaja">No trabaja</option>
+            <option value="Trabaja sector Agropecuario">Trabaja sector Agropecuario</option>
+            <option value="Alguna otra actividad">Alguna otra actividad</option>
+          </select>
       </div>
         <div id="smallInput">
        <h2>Edad</h2>
@@ -305,16 +310,16 @@ function checkAll(){
     <div id="comboboxPanel">
       <p>Posición en su trabajo</p>
           <select name="PosTrabajom" onchange="doSomething()">
-            <option>Obrero</option>
-            <option>Jornalero o Peón</option
-            ><option>Empleado</option>
-            <option>Patrón o Empresario</option>
-            <option>Miembro de Cooperativa</option>
-            <option>Trabajador no remunerado</option>
-            <option>Trabajador en la via publica</option>
-            <option>o en su vivienda</option>
-            <option>o en su estrablecimiento</option>
-            </select>
+            <option value="Obrero">Obrero</option>
+            <option value="Jornalero o Peón">Jornalero o Peón</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Patrón o Empresario">Patrón o Empresario</option>
+            <option value="Miembro de Cooperativa">Miembro de Cooperativa</option>
+            <option value="Trabajador no remunerado">Trabajador no remunerado</option>
+            <option value="Trabajador en la via publica">Trabajador en la via publica</option>
+            <option value="o en su vivienda">o en su vivienda</option>
+            <option value="o en su estrablecimiento">o en su estrablecimiento</option>
+        </select>
       </div>
       <div id="mediumInput">
      <h2>Domicilio</h2>
@@ -323,24 +328,20 @@ function checkAll(){
     <div id="comboboxPanel">
       <p>Estado Civil</p>
           <select name="Edocivilm" onchange="doSomething()">
-            <option>Casado</option>
-            <option>Viudo</option>
-            <option>Divorciado</option>
-            <option>Unión libre</option>
-            </select>
+            <option value="Casado">Casado</option>
+            <option value="Viudo">Viudo</option>
+            <option value="Divorciado">Divorciado</option>
+            <option value="Unión libre">Unión libre</option>
+        </select>
       </div>
     
-    <div id="
+    <div id="">
     <legend></legend>
 
         <p>&nbsp;</p>
-      </fieldset>
       
-      <fieldset>
-        
-        <div id="largeInput"></div>
-      </fieldset>
-    </form>
+      
+   
    </div>
    
    <div id="bottomcontant">
@@ -495,11 +496,11 @@ function checkAll(){
      <p>
      <div id="smallInput">
        <h2>Numero Oficialia:</h2>
-     <input name="edadDist" type="text" />
+     <input id="Nooficialia" name="Nooficialia" type="text" />
   </div>
     <div id="smallInput">
        <h2>Numero Libro:</h2>
-     <input name="nacDist" type="text" />
+     <input name="Nolibro" type="text" />
     </div>
     <div id="smallInput">
        <h2>Fecha de Registro:</h2>
@@ -513,21 +514,18 @@ function checkAll(){
     </p>
     
     
+    
     </div>
+    <input type="image" name="aceptar" id="aceptar" src="images/aceptar.jpg" />
     <div id="leftInput">
-       <form id="form3" name="form3" method="post" action="">
-         <input type="image" name="aceptar" id="aceptar" src="images/aceptar.jpg" />
-         <input type="image" name="cancelar" id="cancelar" src="images/cancelar.jpg" />
-       </form>
+    </form>
+         
+       
      
      </div>
-    
+   
  </div>
-  </div>
   
- 
- </div>
-</div>
 <div id="footWrap">
  <div id="footPanel">
   <a href="#">Bluemoon <span>Tech</span></a>

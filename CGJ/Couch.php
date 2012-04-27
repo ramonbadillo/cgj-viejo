@@ -16,7 +16,7 @@ include("CouchSimple.php");
             
             $couch = new CouchSimple($options); // See if we can make a connection
             $resp = $couch->send("DELETE", $uri); 
-            var_dump($resp); // string(12) "{"ok":true}"
+            //var_dump($resp); // string(12) "{"ok":true}"
         }
         
         public static function get($uri){
@@ -27,7 +27,7 @@ include("CouchSimple.php");
             $couch = new CouchSimple($options); // See if we can make a connection
             // Get back document
             $resp = $couch->send("GET", $uri); 
-            var_dump($resp);
+            //var_dump($resp);
             $regreso=json_decode($resp,true);
             return $regreso;
             
@@ -42,7 +42,7 @@ include("CouchSimple.php");
             
             // Create
              $resp = $couch->send("PUT", $uri, $jason); 
-            var_dump($resp); // string(47) "{"_id":"123","_rev":"2039697587","data":"Foo"}"  
+            //var_dump($resp); // string(47) "{"_id":"123","_rev":"2039697587","data":"Foo"}"
         }
         
 
