@@ -1,0 +1,1 @@
+Aplicacion distribuida en lenguaje php y con couchdb
